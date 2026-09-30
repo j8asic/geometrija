@@ -1,0 +1,191 @@
+# First steps in Rhino
+
+::: {.lesson-meta}
+**Exercise 1 · About 90 minutes · No previous CAD experience**
+
+**Your model:** a 6 m × 2 m pontoon with a small cabin and four mooring posts. You will learn to find commands, move around the model, select objects and work to dimensions. This is a geometry exercise, not a vessel design.
+:::
+
+## Before you start
+
+Open Rhino and keep these instructions beside it. A mouse with a wheel and a right button is helpful. The instructions use **Rhino 8 for Windows** and English command names. On macOS, panel positions and some shortcuts differ; use the named commands when a shortcut does not match. You do not need Grasshopper, plugins or programming.
+
+Choose **File → New**, select a template using **metres**, and confirm the model units in **File → Properties → Units**. For this exercise, set absolute tolerance to **0.001 m** and angle tolerance to **1 degree**. These are exercise settings, not a claim that clicking an image is accurate to a millimetre. Save immediately as `surname_ex01_pontoon.3dm` in your own course folder.
+
+Turn **Auto CPlane off** for these introductory exercises. Keep **Grid Snap off**, **Ortho off** and **Gumball on** initially. We will enable selected object snaps later. Restore the standard four views with `_4View` if necessary. [CPlane and Auto CPlane documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/cplane.htm).
+
+## 1. Find your way around the window
+
+![Rhino 8 Windows interface, numbered 1–9: title, menus, command window, toolbars, left sidebar, object snaps, right panels, viewports and status bar.](https://docs.mcneel.com/rhino/8/help/en-us/image/localization/rhinowindow_win.png){fig-alt="Numbered Rhino 8 Windows interface. The command prompt is above four viewports, drawing tools are on the left, properties are on the right and modelling aids are along the bottom."}
+
+*Image: Robert McNeel & Associates, hosted by McNeel. [Open the illustrated interface guide](https://docs.mcneel.com/rhino/8/help/en-us/user_interface/rhino_window.htm).*
+
+Use the numbers in the image to locate these areas:
+
+| Area | What to do here |
+|---|---|
+| **1–2: title and menus** | Check the open filename; find commands grouped by purpose. |
+| **3: command window** | Read what Rhino is asking for next: an object, a point, a distance or an option. |
+| **4: toolbars** | Open common commands, including transformations such as Move, Copy, Rotate and Scale. |
+| **5: left sidebar** | Find creation tools such as curves and solids; its contents can change with the active toolbar tab. |
+| **6: object snaps** | Choose precise locations on existing geometry, such as an endpoint or midpoint. |
+| **7: right panels** | Inspect the selected object's Properties and organise objects with Layers. |
+| **8: viewports** | Look at the same model from different directions. |
+| **9: status bar** | Check units and toggle modelling aids, including Ortho and Gumball. |
+
+The left side often helps you **create**, and toolbar tabs often help you **modify**, but this is not a fixed division: Rhino workspaces are customisable. Learn the **command names**, not just the icon positions.
+
+### Three ways to start the same command
+
+Find **Box** in the Solid menu, hover over a Box toolbar icon, and type `_Box` into the command area. These are alternative routes to the same tool; do not run all three at once. Hovering over an icon shows a tooltip; some icons have different left- and right-click actions.
+
+In this book an underscore, as in `_Box`, requests the English command name even in a translated Rhino interface. Type the command and press **Enter**. Then answer the prompt. **Esc** cancels an unfinished command; **Enter** accepts an input or completes a selection. When Rhino is idle, Enter can repeat the previous command. `_Undo` reverses a modelling mistake.
+
+::: {.callout-tip title="Checkpoint — read the prompt"}
+Start `_Box`, read the first prompt aloud, then cancel with Esc. Nothing needs to be created yet. If Rhino is asking for a point, clicking another toolbar button is not the answer to that prompt.
+:::
+
+## 2. Understand the views and coordinates
+
+For this course we choose a right-handed ship coordinate system: **X forward**, **Y to port**, **Z upward**. The centreplane is **Y = 0**. These are our modelling conventions, not labels that Rhino assigns to a ship automatically.
+
+| Standard view | World plane | What it shows for our ship |
+|---|---|---|
+| **Top** | XY | Plan view: length and breadth. |
+| **Front** | XZ | Side/profile view: length and height. |
+| **Right** | YZ | Body-plan/end view: breadth and height. |
+| **Perspective** | A 3D view | The overall shape and spatial relationships. |
+
+**Rhino's “Front” does not mean the ship's bow view.** Its meaning comes from the world axes.
+
+A *construction plane*, or **CPlane**, is the drawing plane for the active viewport. Ordinary mouse picks usually lie on it unless a snap or another constraint places them elsewhere. [Read about construction planes](https://docs.mcneel.com/rhino/8/help/en-us/commands/cplane.htm).
+
+Our numeric point examples use the prefix **`w` for world coordinates**: `w6,1,0` means X = 6 m, Y = 1 m, Z = 0 m, regardless of the viewport's local axes. Use a decimal point in the examples; commas separate coordinates. A point such as `w0,0,0.6` is not the same input as the single distance `0.6`.
+
+## 3. Create the pontoon to exact dimensions
+
+Open the **Layers** panel, using the `_Layer` command if necessary. Create four layers: `Pontoon`, `Cabin`, `Fittings` and `Construction`. Make `Pontoon` the **current layer**; new objects will be placed there. The current-layer indicator is not the visibility bulb or lock.
+
+Activate **Top** by clicking its title. Restore its CPlane with `_CPlane`, choosing **World**, then **Top**. Start `_Box` and use the normal corner-to-corner option:
+
+| Rhino is asking for… | Enter… |
+|---|---|
+| First base corner | `w0,-1,0` |
+| Other base corner | `w6,1,0` |
+| Height | `0.6` |
+
+Press Enter after each input. Use `_Zoom`, then **Extents**, if you cannot see the result. In Perspective, choose **Shaded** from the viewport-title menu.
+
+The pontoon should extend from X = 0 to 6, Y = −1 to +1 and Z = 0 to 0.6 m. It is one closed geometric object; this exercise does not give it plate thickness or internal structure. [Box command reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/box.htm).
+
+::: {.callout-tip title="Checkpoint — one object, four views"}
+Select the pontoon in Top. Notice that the same object highlights in the other views. You have not created four separate pontoons. Save the file.
+:::
+
+## 4. Navigate without moving the geometry
+
+Try each action with the pontoon visible. [Official navigation guide](https://docs.mcneel.com/rhino/8/help/en-us/seealso/sak_navigate.htm).
+
+| Action | Default Windows mouse operation |
+|---|---|
+| Zoom | Roll the wheel. |
+| Pan in Top, Front or Right | Hold the right button and drag. |
+| Orbit in Perspective | Hold the right button and drag. |
+| Pan in Perspective | Hold Shift and the right button, then drag. |
+| Maximise or restore one viewport | Double-click its title. |
+| Recover a lost model | `_Zoom` → **Extents** in the active viewport. |
+| Focus on one selected object | `_Zoom` → **Selected**. |
+
+Change the view, then look at another viewport: the pontoon's position has not changed. **Orbiting changes your viewpoint; moving an object changes its coordinates.** If a mouse setting differs on your computer, use the named Pan, Zoom or RotateView tools.
+
+## 5. Add the cabin and practise selecting
+
+Make `Cabin` current. In **Top**, with the World Top CPlane, create another `_Box`:
+
+| Input | Value |
+|---|---|
+| First base corner | `w2,-0.6,0.6` |
+| Other base corner | `w4,0.6,0.6` |
+| Height | `1` |
+
+The cabin is 2 m long, 1.2 m wide and 1 m high; its base sits on the pontoon's top, not on the world XY plane.
+
+Now practise selection in a clear view. Click an object to select it. **Shift-click** adds to the selection; **Ctrl-click** removes a selected object in the default Windows setup. Click empty space when no command is active to clear the selection.
+
+Drag a rectangle from **left to right**: a window selects objects entirely inside it. Drag from **right to left**: a crossing selection also catches objects the rectangle touches. When Rhino offers a list because objects overlap, inspect the highlighted candidate before accepting it. [Selection guide with illustrations](https://docs.mcneel.com/rhino/8/help/en-us/popup_actions/select_objects.htm).
+
+Try selecting just the cabin, then both objects, then just the pontoon. Use the layer lock to protect `Pontoon`, try selecting it, and unlock it afterwards. Switch its visibility off and on. Neither hiding nor locking is deletion.
+
+::: {.callout-warning title="Do not confuse selection with editing a face"}
+For now, select whole objects normally. Ctrl+Shift selection can select sub-objects such as faces and edges; that is a different operation. Before a transformation, check what is highlighted.
+:::
+
+## 6. Use Gumball deliberately
+
+Select only the cabin and enable **Gumball**. Open its menu and choose **Align to World**; reset the widget first if it was manually relocated.
+
+![Labelled Gumball handles for moving, rotating, scaling and other transformations.](https://docs.mcneel.com/rhino/8/help/en-us/image/localization/gumballwidget.png){width=540 fig-alt="Rhino Gumball: arrows move along axes, arcs rotate, square handles scale, and plane handles move in a plane. Other handles support extrusion and cutting."}
+
+*Image: Robert McNeel & Associates, hosted by McNeel. [Gumball documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/gumball.htm); optional demonstration: [Hello Gumball!](https://vimeo.com/84954262).*
+
+Arrows **move**, arcs **rotate**, and square handles **scale**. Plane handles constrain movement to two axes. The widget can be aligned differently; colours alone are not a guarantee of world direction. Leave extrusion and cutting handles for a later lesson.
+
+**Try this:** click the world-X move arrow, enter `0.5`, and accept. The cabin is now 0.5 m farther forward: its X limits are 2.5 and 4.5 m. Click the Z rotation arc, enter `15`, inspect the result, then `_Undo` that rotation. Try a scale handle, observe the dimension change, and undo that change too. Keep the forward translation.
+
+A single click on a handle allows numeric input; a drag is useful for exploration. Do not leave dimensions to an approximate drag when a value is specified.
+
+::: {.callout-tip title="Checkpoint — moving versus resizing"}
+After the cabin's translation its length is still 2 m. Which action would have changed the length instead? Explain the difference before continuing.
+:::
+
+## 7. Create one fitting and copy it accurately
+
+Make `Fittings` current and activate **Top**, with its World Top CPlane. Run `_Cylinder`: centre `w0.5,-0.75,0.6`, radius `0.08`, height `0.3`. This is a simplified mooring post. [Cylinder reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/cylinder.htm).
+
+Select the post and run `_Copy`. Use `w0.5,-0.75,0.6` as the base point and `w0.5,0.75,0.6` as the destination. Press Enter to finish copying. Select **both** posts and run `_Copy` again, using `w0,0,0` as base and `w5,0,0` as destination. This defines a 5 m translation even though the base point is not on a post. Finish the command.
+
+You should have **four** posts, at X = 0.5 and 5.5 m and Y = ±0.75 m. Their bases stay at Z = 0.6 m. Do not keep repeatedly clicking the destination: each click may make another copy.
+
+## 8. Snap to geometry, not to an approximate screen position
+
+Make `Construction` current. Turn on **Osnap → End and Mid**; leave **Near** and **Project** off. Keep Grid Snap off. Osnap attaches a point to existing geometry; Grid Snap attaches it to the drawing grid. Ortho constrains direction and is not a replacement for either. [Object snap documentation](https://docs.mcneel.com/rhino/8/help/en-us/user_interface/object_snaps.htm).
+
+In Perspective, orbit so that the upper edges of the pontoon are visible. Start `_Line`. Snap to **Mid** on the upper transverse edge at X = 0, then to **Mid** on the corresponding upper edge at X = 6. Wait for the Mid indication before clicking. You have drawn a deck centreline from `(0,0,0.6)` to `(6,0,0.6)`, not a line on the ground. Check its height in Front.
+
+Use `_Distance` with endpoint snaps to measure the pontoon's length and breadth. They should be **6 m** and **2 m**. [Distance reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/distance.htm).
+
+::: {.callout-warning title="A very common 3D mistake"}
+With Osnap **Project** enabled, a snapped point can be projected to the active CPlane instead of retaining its 3D location. In these exercises, leave Project off unless a step explicitly asks for projection.
+:::
+
+## 9. Optional bridge to the next exercise: edit a curve
+
+On `Construction`, activate Top and turn Osnap off temporarily. Run `_InterpCrv`, use degree 3, and enter these points in order: `w0,-2,0`, `w2,-2.3,0`, `w4,-2.3,0`, `w6,-2,0`. Press Enter. This spare practice curve lies outside the pontoon.
+
+Select it and run `_PointsOn`. Move one interior control point and watch the shape change. Undo the move, then run `_PointsOff`. The control points are editing handles; they are not generally the same as the points you supplied to the interpolating curve. Compare [Curve and InterpCrv](https://docs.mcneel.com/rhino/8/help/en-us/commands/curve.htm) and [PointsOn / PointsOff](https://docs.mcneel.com/rhino/8/help/en-us/commands/pointson.htm).
+
+Hide `Construction` for your final model view, but keep its objects in the file.
+
+## 10. Independent check and submission
+
+Without following the earlier click sequence, show a neighbour how to select only the four posts, recover a lost view and make `Cabin` current. Explain why the cabin starts at Z = 0.6 rather than Z = 0.
+
+Save `surname_ex01_pontoon.3dm`. Submit that model and two screenshots: a shaded Perspective view and the four-view layout. The screenshots should show the model clearly, not be dominated by an open dialog. Keep the layers and construction geometry in the model file.
+
+| Self-check | Expected result |
+|---|---|
+| Document units and pontoon | Metres; pontoon 6 × 2 × 0.6 m. |
+| Cabin | 2 × 1.2 × 1 m, base Z = 0.6 m, translated to X = 2.5…4.5 m. |
+| Fittings | Four posts, all seated on the pontoon. |
+| Organisation | Four meaningful layers; no accidental duplicate solids. |
+| Understanding | You can explain selection, a CPlane, Osnap and Gumball in your own words. |
+
+### Quick questions
+
+Why does selecting an object highlight it in several views? Which selection rectangle includes partially touched objects? Does Gumball translation alter an object's dimensions? What happens if you type only two coordinates in a viewport with a different CPlane?
+
+::: {.callout-note collapse="true" title="Check your answers"}
+The views show the same 3D objects. Right-to-left crossing selection includes touched objects. Translation preserves dimensions. Without an explicit world-coordinate prefix, coordinate entry is interpreted relative to the active construction plane; always check the coordinate system rather than assuming screen horizontal means world X.
+:::
+
+**Next:** [Hull modelling in Rhino](02-hull-modelling.qmd).

@@ -1,0 +1,71 @@
+# Reference library {.unnumbered}
+
+The exercises link the relevant reference beside each operation. This page collects the most useful starting points and identifies where the pictures, videos and practice data come from.
+
+## Rhino: interface and first models
+
+| Topic | Official McNeel reference |
+|---|---|
+| Window, menus, toolbars, panels and status bar | [Rhino 8 interface guide](https://docs.mcneel.com/rhino/8/help/en-us/user_interface/rhino_window.htm) |
+| Pan, orbit and zoom | [Navigate views](https://docs.mcneel.com/rhino/8/help/en-us/seealso/sak_navigate.htm) |
+| Picking, window selection and crossing selection | [Select objects](https://docs.mcneel.com/rhino/8/help/en-us/popup_actions/select_objects.htm) |
+| Drawing planes and Auto CPlane | [CPlane](https://docs.mcneel.com/rhino/8/help/en-us/commands/cplane.htm) |
+| Endpoint and midpoint snaps; Project | [Object snaps](https://docs.mcneel.com/rhino/8/help/en-us/user_interface/object_snaps.htm) |
+| Move, rotate and scale handles | [Gumball](https://docs.mcneel.com/rhino/8/help/en-us/commands/gumball.htm) |
+| Simple solids | [Box](https://docs.mcneel.com/rhino/8/help/en-us/commands/box.htm) and [Cylinder](https://docs.mcneel.com/rhino/8/help/en-us/commands/cylinder.htm) |
+| Measuring a model | [Distance](https://docs.mcneel.com/rhino/8/help/en-us/commands/distance.htm) |
+
+## Rhino: drawings, curves and hull surfaces
+
+| Topic | Official McNeel reference |
+|---|---|
+| Placing a reference image | [Picture](https://docs.mcneel.com/rhino/8/help/en-us/commands/picture.htm) |
+| Scaling with reference points | [Scale and Scale2D](https://docs.mcneel.com/rhino/8/help/en-us/commands/scale.htm) |
+| Control-point versus interpolated curves | [Curve and InterpCrv](https://docs.mcneel.com/rhino/8/help/en-us/commands/curve.htm) |
+| Showing and hiding editing handles | [PointsOn and PointsOff](https://docs.mcneel.com/rhino/8/help/en-us/commands/pointson.htm) |
+| Correcting selected coordinates | [SetPt](https://docs.mcneel.com/rhino/8/help/en-us/commands/setpt.htm) |
+| Surfaces from sections and rails | [Sweep2](https://docs.mcneel.com/rhino/8/help/en-us/commands/sweep2.htm) and [Loft](https://docs.mcneel.com/rhino/8/help/en-us/commands/loft.htm) |
+| Symmetry and joining | [Mirror](https://docs.mcneel.com/rhino/8/help/en-us/commands/mirror.htm) and [Join](https://docs.mcneel.com/rhino/8/help/en-us/commands/join.htm) |
+| Curve and surface orientation | [Dir](https://docs.mcneel.com/rhino/8/help/en-us/commands/dir.htm) |
+| Topology and object validity | [ShowEdges](https://docs.mcneel.com/rhino/8/help/en-us/commands/showedges.htm) and [Check](https://docs.mcneel.com/rhino/8/help/en-us/commands/check.htm) |
+| Visual smoothness checks | [Curvature / CurvatureGraph](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvature.htm) and [Zebra](https://docs.mcneel.com/rhino/8/help/en-us/commands/zebra.htm) |
+| Cutting check sections | [Section and Contour](https://docs.mcneel.com/rhino/8/help/en-us/commands/contour.htm) |
+| Closing suitable planar openings | [Cap](https://docs.mcneel.com/rhino/8/help/en-us/commands/cap.htm) |
+
+## Pictures and videos: credits and access
+
+The two Rhino illustrations in Exercise 1 are served from McNeel's documentation site, **not copied into this repository**. Their captions credit Robert McNeel & Associates and link to the original documentation. The images and linked videos remain subject to their owners' terms; public availability is not a claim of an open licence.
+
+| Media | Original source and use here |
+|---|---|
+| Numbered Rhino 8 Windows interface | [McNeel interface guide](https://docs.mcneel.com/rhino/8/help/en-us/user_interface/rhino_window.htm); externally linked image in Exercise 1. |
+| Labelled Gumball widget | [McNeel Gumball documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/gumball.htm); externally linked image in Exercise 1. |
+| Hello Gumball! demonstration | [McNeel video on Vimeo](https://vimeo.com/84954262), linked from the official Gumball documentation; optional viewing. |
+| FESB course video 1 | [Watch on YouTube](https://www.youtube.com/watch?v=7m7oXtBP5Z0); lecturer-supplied link, embedded in Exercise 2. |
+| FESB course video 2 | [Watch on YouTube](https://www.youtube.com/watch?v=5c0w0-o3Sc8); lecturer-supplied link, embedded in Exercise 2. |
+
+The FESB videos use YouTube's privacy-enhanced player, without autoplay, and have ordinary watch links beneath the section heading. No video transcript, unverified chapter title or timestamp is presented as part of these notes. The instructions remain usable when embedded playback is blocked. External media hosts may receive a request when their content loads; no separate course analytics are configured.
+
+## Practice body plan and offsets
+
+The [body-plan PNG](downloads/practice-body-plan.png), [SVG](downloads/practice-body-plan.svg), [station table](downloads/practice-stations.csv) and [offsets CSV](downloads/practice-offsets.csv) are original **synthetic teaching data** prepared for this exercise. They are not copied from a vessel's lines plan, an experiment or a published hull series.
+
+Each of the five transverse half-sections follows a quarter-ellipse:
+
+$$
+y=b\sin\theta,\qquad z=z_k+(z_s-z_k)(1-\cos\theta),\qquad 0\leq\theta\leq\frac{\pi}{2}.
+$$
+
+Here $b$ is the section's half-breadth at the sheer, $z_k$ its keel height and $z_s$ its sheer height. The station table supplies these dimensions and each section's X position. The drawing overlays all sections in the body-plan view; the offsets CSV includes their final world X coordinates.
+
+Seven reference points per section are provided at 15-degree intervals. The image uses a denser sampling to show smooth curves. Tracing those points with an interpolating spline is an approximation: it does not reproduce the analytic ellipse exactly between samples.
+
+The generator is `scripts/make_practice_assets.py` in the repository. Editing `downloads/practice-stations.csv` and rendering the book regenerates the teaching downloads without external Python packages. Students can use the published files directly and do not need to run the script.
+
+**The first and last sections intentionally have finite breadth.** The model is an open-ended hull segment, not a completed boat. It carries no claims about hydrostatics, seaworthiness, resistance or suitability for production.
+
+## Original notes and course maintenance
+
+Exercise 2 adapts and extends Josip Bašić's *Hull modelling in Rhino*, dated **7 October 2025**. The [original TeX](https://github.com/j8asic/geometrija/blob/main/source/curvenote.tex) is preserved unchanged for provenance. Its Curvenote support files were not included in the supplied material; they are not required by this HTML book.
+
+For instructors, the repository contains a chapter template, teaching notes, a local-link checker and the publishing workflow. See the [repository README](https://github.com/j8asic/geometrija#readme) for editing and publishing. Authoring references: [Quarto books](https://quarto.org/docs/books/) and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

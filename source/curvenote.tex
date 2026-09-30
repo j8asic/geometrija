@@ -1,0 +1,163 @@
+% Created with jtex v.1.0.21
+\documentclass{article}
+\PassOptionsToPackage{short, nodayofweek}{datetime}
+
+\input{curvenote.def}
+
+
+
+% colors for hyperlinks
+\hypersetup{colorlinks=true, allcolors=blue}
+\hypersetup{
+pdftitle={\@title},
+pdfsubject={},
+pdfauthor={\@author},
+pdfkeywords={},
+addtopdfcreator={Written in Curvenote}
+}
+
+\usepackage{curvenote}
+
+\title{Hull modelling in Rhino}
+
+\newdate{articleDate}{7}{10}{2025}
+\date{\displaydate{articleDate}}
+
+\author{\bfseries Josip Bašić\mdseries\\}
+
+\begin{document}
+
+\maketitle
+\keywords{}
+
+\section{Import hull lines drawing}
+
+An example of how to import picture into Rhino is given here and explained below.
+
+\subsection{Set up the drawing space}
+
+\begin{enumerate}
+\item Start by maximizing the desired viewport for your tracing. For example, double-click on the ``Right'' viewport title to make it the only visible viewport.
+\item In the command line, type the command \textit{Picture} and press \textit{Enter}.
+\item An ``\textit{Open Bitmap}'' window will appear. Navigate to your image file, select it, and click ``\textit{Open}''.
+\item Click and drag in the viewport to place the image onto the construction plane.
+\end{enumerate}
+
+\subsection{Adjust image properties}
+
+\begin{enumerate}
+\item Select the image you just placed.
+\item On the right-hand side, go to the \textbf{Properties} panel and select the \textbf{Material} tab (it looks like a paint tube).
+\item In the ``\textit{Picture}'' settings, check the box for \textbf{Color Mask}.
+\item A ``\textit{Select Color}'' window will pop up. Choose the image background color (usually it is \textbf{White)} from the color list and click \textbf{OK}. The chosen background (e.g. white colour) of your image will now be transparent.
+\item If the result is a bit noisy, play with \textbf{Tolerance} (T:) values to clean out more background color.
+\item To make the drawing lines easier to see against the grid, adjust the \textbf{Transparency} slider. A setting of around 70-80\% is usually effective.
+\end{enumerate}
+
+\subsection{Align the Image to the Grid:}
+
+\begin{enumerate}
+\item \textbf{Move the Image:}
+
+\begin{itemize}
+\item Type the Move command and press Enter.
+\item Select a key reference point on your drawing to move \textit{from}. This should be a point you want to align with the origin (0,0,0), such as the intersection of a baseline and a center line.
+\item For the point to move \textit{to}, type 0 in the command line and press \textit{Enter}. This will snap your reference point to the origin of the grid.
+\end{itemize}
+
+
+\item \textbf{Rotate the Image:}
+
+\begin{itemize}
+\item Type the \textit{Rotate} command and press \textit{Enter}.
+\item For the center of rotation, select the same reference point you just moved to the origin.
+\item For the first reference point, click on another point along the baseline of your drawing.
+\item To align it perfectly horizontally, hold the \textbf{Shift} key (to enable \textit{Ortho} mode) and click anywhere along the horizontal axis. Your image's baseline will now be aligned with the grid.
+\end{itemize}
+\end{enumerate}
+
+\subsection{Only if the image is scanned: undeform it}
+
+If your scanned image is distorted or skewed, you can add control points to the image plane itself and move them to align the drawing with the grid accurately.
+
+\begin{enumerate}
+\item Select the image plane and type the \textbf{Rebuild} command and press \textbf{Enter}.
+\item In the ``\textbf{Rebuild Surface}'' dialog box, you can set the \textbf{Point Count} for the U and V directions. This determines how many control points your surface will have. For example, set both U and V to \textbf{3}. For more complex adjustments, you might use a higher number. Click \textbf{OK}.
+\item With the image still selected, type the \textbf{PointsOn} command to see a grid of control points.
+\item Drag control points to stretch or compress that part of the image until the underlying drawing feature (like a horizontal line) aligns perfectly with the grid.
+\item Repeat this process for other points as needed to correct the entire image.
+\item Once you are satisfied with the alignment, press the \textbf{Esc} key to deselect the points and hide the control point grid.
+\end{enumerate}
+
+\section{Setting up modelling process}
+
+\subsection{Scale the Drawing to the Correct Dimensions}
+
+Before tracing, it's good to ensure the reference image is scaled correctly. If the drawing has a dimension marked on it (like the length or beam), you can use that to scale the image accurately.
+
+\begin{enumerate}
+\item Select your image plane and call the \textbf{Scale2D} command.
+\item \textbf{First reference point:} Click on one end of a known dimension on your drawing (e.g., the start of the waterline).
+\item \textbf{Second reference point:} Click on the other end of that same dimension.
+\item You will then be prompted to enter the new distance. Type the actual length that the reference line represents and press \textbf{Enter}. Your image is now scaled correctly.
+\end{enumerate}
+
+\subsection{Organize Your Workspace with Layers}
+
+Using layers is essential for keeping the model organized.
+
+\begin{enumerate}
+\item Open the \textbf{Layers} panel.
+\item Rename the default layer to ``background''.
+\item Select your image plane, right-click on the ``background'' layer, and choose \textbf{Change Object Layer}.
+\item Click the lock icon next to the ``background'' layer to prevent accidental moving of the image.
+\item Create a new layer and name it ``curves''. Click the circle next to it to make it the active layer. All new geometry will now be created on this layer.
+\end{enumerate}
+
+\section{Drawing sections}
+
+An example how to draw sections and produce hull surface is given in the video here and explained below.
+
+\subsection{Trace the hull sections}
+
+Be sure to maximize the window showing the hull lines. Now each section curve needs to be digitally drawn by using commands from the \textbf{Curves} toolbar.
+
+\begin{enumerate}
+\item From the toolbar, select the \textbf{Curve: Interpolate Points} tool.
+\item Carefully click along the contour of one of the station lines on your drawing. Place points at key locations where the curve changes direction.
+\item Right-click or press Enter to complete the curve.
+\item Repeat this process for all the visible station lines on one side of the hull.
+\end{enumerate}
+
+Now let's ensure all endpoints of drawn curves start for the middle of the ship (i.e. centreline).
+
+\begin{enumerate}
+\item Select all or one-by-one drawn section curves.
+\item Use the \textbf{PointsOn} command (or \textbf{F10}) to show its control points.
+\item Select all or one-by-one control points nearest to the centreline.
+\item Type \textbf{SetPt} (Set Points) and press \textbf{Enter}. In the dialog box, check \textbf{Set Y} and \textbf{Align to World}, then click OK. Enter 0 for the \textbf{Location for points}. Now all curves start at \textit{Y}=0, i.e. the centreline.
+\item Alternatively to the step above, you can enable \textbf{Grid Snap} and \textbf{Ortho} to simply drag the control points to the centreline.
+\end{enumerate}
+
+\subsection{Align the curves along longitudinal axis}
+
+The curves you drew are 2D, but they represent sections at different positions along the hull. We need to move them into their correct 3D locations.
+
+\begin{enumerate}
+\item Switch to the \textbf{Front} viewport. You will see all your traced curves stacked on top of each other.
+\item By using the \textbf{Gumball} or \textbf{Move} command, place each curve to its designated station location along the longitudinal axis.
+\item Use the \textbf{Top} and \textbf{Front} viewports to review the process and to guide you.
+\end{enumerate}
+
+\subsection{Create the keel and chine curves (rails)}
+
+To create the keel curve, we have to connect all lowest ends of section curves.
+
+\begin{enumerate}
+\item In the \textbf{Right} viewport, enable \textbf{OSnap}, and call the \textbf{Curve: Interpolate Points} tool again.
+\item Create a curve from the first to last section, by clicking on the snapped lowest points of each section curve.
+\item Right-click or press Enter to complete the curve, when all keel points are connected.
+\end{enumerate}
+
+If the ship contains a chine, repeat the above process to create the chine curve.
+\end{document}

@@ -1,0 +1,28 @@
+:root { --course-accent: #18536b; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+h1, h2, h3 { line-height: 1.25; }
+h2 { margin-top: 2.1rem; }
+a { text-underline-offset: .15em; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--course-accent); outline-offset: 3px; }
+.lesson-meta { border-left: 4px solid var(--course-accent); padding: .55rem 1rem; margin: 1.25rem 0 1.75rem; background: #f3f7f9; }
+.lesson-meta p:last-child { margin-bottom: 0; }
+.lesson-card { border: 1px solid #d8e0e5; border-radius: .4rem; padding: 1.25rem; margin-bottom: 1rem; height: 100%; }
+.lesson-card h2 { margin-top: 0; }
+.course-video { width: 100%; aspect-ratio: 16 / 9; border: 0; margin-bottom: .5rem; }
+figcaption, .figure-caption { font-size: .9rem; }
+img { max-width: 100%; height: auto; }
+table { font-size: .94rem; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+kbd { border: 1px solid #b7c1c8; border-radius: .2rem; padding: .08rem .3rem; background: #f4f5f6; color: #20262b; }
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  .lesson-meta, .lesson-card { padding: .75rem; }
+}
+@media print {
+  #quarto-sidebar, #quarto-margin-sidebar, .quarto-navigation-tool, .quarto-page-breadcrumbs, nav, .course-video { display: none !important; }
+  main { max-width: none !important; width: 100% !important; }
+  body { font-size: 11pt; color: black; }
+  h2, h3 { break-after: avoid; }
+  figure, .callout, tr { break-inside: avoid; }
+  .lesson-meta { border-left: 2pt solid black; background: none; }
+}

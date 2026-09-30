@@ -1,0 +1,33 @@
+# Exercise title
+
+::: {.lesson-meta}
+**Exercise N · Suggested duration · Prerequisites**
+
+**Outcome:** Describe the model or drawing the student will produce.
+:::
+
+## Before you start
+
+Link the required input files and state units and coordinate conventions.
+
+## Guided work
+
+### Step 1 — A small, observable task
+
+Describe the action, the relevant Rhino command and the expected result.
+
+::: {.callout-tip title="Checkpoint"}
+State what the student should verify before continuing.
+:::
+
+## Independent task
+
+Give a variation that requires understanding rather than copying clicks.
+
+## Submit
+
+Specify the model, screenshots and short answers required.
+
+## References
+
+Link official documentation and credit every third-party media item.

@@ -1,0 +1,9 @@
+/_book/
+/.quarto/
+/downloads/practice-body-plan.png
+/downloads/practice-body-plan.svg
+/downloads/practice-offsets.csv
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

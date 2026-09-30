@@ -1,0 +1,54 @@
+# Welcome {.unnumbered}
+
+Learn to turn dimensions and drawings into a clear, checkable 3D model.
+
+These practicals accompany **Ship Geometry** for Naval Architecture students at **FESB, University of Split**. Start with a simple pontoon to learn Rhino, then reconstruct a hull surface from a body plan. No previous CAD experience is assumed for the first exercise.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.lesson-card}
+## First steps in Rhino {.unnumbered}
+
+**Exercise 1 · About 90 minutes**
+
+Find the tools, navigate the views, select objects and use Gumball. Build a dimensioned pontoon with a cabin and mooring posts.
+
+[Start Exercise 1 →](exercises/01-first-steps.qmd)
+:::
+:::
+::: {.column width="50%"}
+::: {.lesson-card}
+## Hull modelling {.unnumbered}
+
+**Exercise 2 · Two sessions of about 90 minutes**
+
+Calibrate an image, trace and position sections, build rails and a surface, then check symmetry and edges. Includes practice files and FESB videos.
+
+[Start Exercise 2 →](exercises/02-hull-modelling.qmd)
+:::
+:::
+:::
+
+## How to work through a practical
+
+Keep the exercise next to Rhino. Read one short stage, perform it, then stop at its **checkpoint** to inspect the result. Read Rhino's command prompt before the next click. Save the named checkpoints so you can recover a sound earlier model instead of starting over.
+
+Commands appear as `_Box` or `_Move`. Type the command and press Enter; the underscore requests the English name in a translated Rhino interface. Coordinates such as `w2,0,0` are **world coordinates** in metres. Each exercise explains the inputs rather than requiring you to recognise every toolbar icon.
+
+::: {.callout-note title="One coordinate convention throughout"}
+**X forward · Y to port · Z upward · Centreplane Y = 0.**
+
+Top shows XY, Front shows the XZ profile, and Right shows the YZ body plan. “Front” is Rhino's world-view name; it does not mean the ship's bow view.
+:::
+
+## What you need
+
+Use the classroom Rhino installation or your own licensed installation. The instructions target **Rhino 8 for Windows**; on macOS, use the named commands when panels or shortcuts differ. No plugins, Grasshopper, Git or Python are needed by students. A wheel mouse is helpful.
+
+All input files for the second exercise are available within its page. The course text and practice data do not depend on playing a video. External documentation images and videos need internet access; their original pages are linked as fallbacks.
+
+## Finding information
+
+Use the sidebar to change exercises, the page contents to jump between stages, and search to find a command. Browser printing provides a paper copy of the current lesson; video links remain in the printed text. The [reference library](resources.qmd) groups the official documentation, media credits and practice-data details.
+
+The exercises prioritise **measured dimensions, organised construction and explicit checks** over an attractive screenshot. A convincing shaded view alone does not establish that a model is accurate, fair or watertight.
