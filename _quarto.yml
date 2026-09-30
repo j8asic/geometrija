@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: _book
+  pre-render:
+    - python scripts/make_practice_assets.py
+  resources:
+    - downloads/**
+
+book:
+  title: "Ship Geometry"
+  subtitle: "Rhino practicals · Naval Architecture"
+  author: "Josip Bašić"
+  site-url: https://j8asic.github.io/geometrija/
+  repo-url: https://github.com/j8asic/geometrija
+  repo-branch: main
+  repo-actions: [edit, issue]
+  search: true
+  sidebar:
+    style: docked
+    collapse-level: 2
+  chapters:
+    - index.qmd
+    - exercises/01-first-steps.qmd
+    - exercises/02-hull-modelling.qmd
+    - resources.qmd
+  page-footer:
+    left: "Ship Geometry · FESB, University of Split"
+    right: "Course material: Josip Bašić"
+
+lang: en
+format:
+  html:
+    theme: cosmo
+    css: assets/styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    link-external-newwindow: true
+    smooth-scroll: false

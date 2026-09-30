@@ -1,0 +1,251 @@
+# Hull modelling in Rhino
+
+::: {.lesson-meta}
+**Exercise 2 · Two sessions of about 90 minutes · Complete Exercise 1 first**
+
+**Your model:** calibrated reference geometry, five correctly positioned hull sections, two longitudinal rails and a mirrored hull surface. You will distinguish dimensional accuracy, fairness and closure instead of judging the result only by its appearance.
+
+Adapted and extended from *Hull modelling in Rhino*, Josip Bašić, 7 October 2025. The original supplied TeX is preserved in the repository.
+:::
+
+## Before you start: files and videos
+
+Download the [practice body-plan PNG](../downloads/practice-body-plan.png) to your computer; this is the image to open with Rhino's Picture command. The [SVG version](../downloads/practice-body-plan.svg) is useful for viewing or printing. Also keep the [station table](../downloads/practice-stations.csv) and [reference offsets](../downloads/practice-offsets.csv) for checking your work.
+
+![Synthetic practice body plan: five labelled half-sections overlaid in the YZ plane.](../downloads/practice-body-plan.png){fig-alt="Five synthetic half-sections S0 through S4, with world Y horizontal and world Z vertical in metres. Both axes have half-metre ticks. Each section has seven marked reference points and a label at the sheer."}
+
+This is an **original synthetic teaching example**, not a real ship or a validated hull design. It represents an **open-ended hull segment** between two finite sections. Do not force the first or last section to a point. No extra instructor file is needed to complete the exercise. A dimensioned real lines plan can be substituted later.
+
+### FESB course videos
+
+Use these alongside the written exercise. Pause to reproduce an operation, then check your own geometry. The written steps define the units and coordinate convention for this exercise; a demonstration may use a different workspace or orientation.
+
+**[FESB video 1 — open on YouTube](https://www.youtube.com/watch?v=7m7oXtBP5Z0)**
+
+```{=html}
+<iframe class="course-video" src="https://www.youtube-nocookie.com/embed/7m7oXtBP5Z0" title="FESB Ship Geometry course video 1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+
+**[FESB video 2 — open on YouTube](https://www.youtube.com/watch?v=5c0w0-o3Sc8)**
+
+```{=html}
+<iframe class="course-video" src="https://www.youtube-nocookie.com/embed/5c0w0-o3Sc8" title="FESB Ship Geometry course video 2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+
+*Videos are externally hosted on YouTube. The ordinary links remain available when embedded playback is blocked. Both links were supplied for this course; the exercise does not depend on particular video timestamps.*
+
+## 1. Establish units, axes and layers
+
+Start a new document in **metres**, with absolute tolerance **0.001 m** and angle tolerance **1 degree**. Save as `surname_ex02_hull.3dm`. Keep **Auto CPlane off** throughout this exercise.
+
+As in [Exercise 1](01-first-steps.qmd), X points forward, Y to port and Z upward. The centreplane is Y = 0. **Right is the YZ body-plan view**, Front the XZ profile view, and Top the XY plan view. Numeric coordinates below use `w` to identify world coordinates.
+
+Create layers `00_reference`, `10_sections`, `20_rails`, `30_hull` and `40_checks`. Give the tracing curves a colour that contrasts with the reference image. Keep the original image unchanged in your course folder.
+
+The practice stations are:
+
+| Station | X [m] | Half-breadth at sheer [m] | Keel Z [m] | Sheer Z [m] |
+|---|---:|---:|---:|---:|
+| S0 | 0 | 0.70 | 0.25 | 2.00 |
+| S1 | 2 | 1.50 | 0.05 | 2.00 |
+| S2 | 4 | 1.80 | 0.00 | 2.00 |
+| S3 | 6 | 1.40 | 0.10 | 2.00 |
+| S4 | 8 | 0.45 | 0.60 | 2.00 |
+
+A *station* is a transverse section at a specified X position. The *keel rail* connects its lower centreline endpoints; the *sheer rail* connects the upper hull-edge endpoints. A *chine* is a deliberate sharp longitudinal change between hull panels; the supplied example has no hard chine.
+
+## 2. Import the body-plan image
+
+Make `00_reference` current. Double-click the **Right** title to maximise that view. Run `_CPlane`, choose **World**, then **Right**, so the picture will lie in world YZ at X = 0.
+
+Run `_Picture`, open `practice-body-plan.png`, and pick two corners to place it at a convenient size. Do not try to guess the correct final scale. Picture preserves the image's aspect ratio when it is placed. [Picture command and material settings](https://docs.mcneel.com/rhino/8/help/en-us/commands/picture.htm).
+
+Select the picture and inspect its material in the Properties or Materials panel. Make the curves easy to see: reduce the picture's opacity as needed, rather than using a fixed transparency percentage. Optionally use **colour masking** to remove the white background, adjusting its tolerance cautiously. These controls can differ by image format and Rhino version. The supplied PNG does not require background removal.
+
+::: {.callout-note title="Identify two reference points"}
+Call the intersection of the printed Y = 0 and Z = 0 axes **A**. Call the printed Y = 1.0, Z = 0 tick **B**. They are 1 m apart. These are locations in the pixels, not Rhino snap points: zoom in to pick them carefully. Switch Osnap off while picking image marks.
+:::
+
+## 3. Align and calibrate before tracing
+
+### Move the datum to the origin
+
+Select only the picture and run `_Move`. Pick **A** as the base point and enter **`w0,0,0`** as the destination. The printed axis intersection is now at the world origin; the edge of the bitmap need not be there.
+
+### Rotate only if necessary
+
+The supplied drawing is already square. For a slightly rotated replacement image, stay in the Right view and run `_Rotate`. Set the rotation centre to `w0,0,0`. At the angle/first-reference prompt, pick B along the printed baseline; at the second-reference prompt, enter `w0,1,0`. This aligns the baseline with positive world Y. Do not rotate the geometry to compensate for a wrong viewport.
+
+### Scale using the known one-metre interval
+
+With the Right World CPlane still active, select the image and run `_Scale2D`. Keep **Copy = No** and **Rigid = No** if those options are shown.
+
+1. At the **base point** prompt, enter `w0,0,0`.
+2. At **scale factor or first reference point**, pick the printed point B on the picture.
+3. At **second reference point**, enter `w0,1,0`.
+
+The old origin-to-B distance is now one metre. This is a base point followed by **two reference points**; it is not simply two clicks followed by a separate “new distance” prompt. [Scale and Scale2D documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/scale.htm).
+
+An alternative is to measure the old interval with `_Distance` and enter the factor **known length / measured length**. For example, an interval currently measuring 2.5 m that should be 1 m needs a factor of 0.4. Use one method, not both in succession.
+
+### Check an independent direction
+
+Use `_Distance` between the printed Z = 0 and Z = 1.0 marks on the vertical axis, and between two horizontal marks one metre apart. Both measurements should be within about **0.01 m** of 1 m for this tracing exercise. Record them. This is a classroom checking target, distinct from Rhino's document tolerance.
+
+::: {.callout-warning title="Do not scale a body plan using the ship's length"}
+The horizontal axis of this picture is breadth, not longitudinal distance. The 8 m span between S0 and S4 is not visible as a length in the overlaid body plan. Likewise, a half-breadth is not a full beam.
+:::
+
+### A scan that fails the checks
+
+A tilted scan may need rotation; unequal scale factors or perspective distortion need more careful correction. Preserve the source and rectify the image against known dimensions before tracing. Moving control points on a rebuilt Picture surface can make a few lines look aligned without establishing dimensional accuracy elsewhere. It is **not** the default correction method here.
+
+If a drawing lacks enough reliable reference dimensions, stop and ask for better data rather than inventing a hull shape. The supplied digital practice image needs no scan rectification.
+
+Lock `00_reference` and make `10_sections` current. Save a checkpoint as `surname_ex02_01_calibrated.3dm`.
+
+## 4. Trace five section curves
+
+Remain in **Right**, with the World Right CPlane. Turn **Grid Snap**, **Ortho** and **Osnap** off while tracing the raster; they can pull your clicks away from its lines.
+
+Start `_InterpCrv` (**Curve → Free-Form → Interpolate Points**), using **degree 3**. Follow S0 from its keel endpoint at Y = 0 to its sheer endpoint at Z = 2. Use the seven marked points as guides, then press Enter. Keep the curve **open**. Name it `S0` in Object Properties. Repeat for S1 through S4, following each label rather than jumping to a neighbouring line.
+
+Use a small number of meaningful points, not a click at every pixel. An interpolating curve passes through the chosen input points, but many noisy inputs do not automatically produce a fair curve. `Curve` and `InterpCrv` are different tools; see [their illustrated reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/curve.htm).
+
+The [offsets CSV](../downloads/practice-offsets.csv) provides a fallback and a check: it has seven points per station. To enter a section numerically **at this tracing stage**, use `w0,y,z` for each row, temporarily replacing its listed X with 0. The listed X values are the final station locations used in the next stage. Do not mix the two workflows and move an already-positioned station a second time.
+
+::: {.callout-note title="Reading a real body plan"}
+A conventional body plan may show forward and aft stations on opposite sides of its centreline. Read the station labels and arrange the chosen half consistently in your model. Do not assume that every line on one side belongs to the same physical side of the vessel.
+:::
+
+## 5. Correct endpoints and inspect the curves
+
+### Put only the keel endpoints on the centreplane
+
+Select a section and run `_PointsOn` (F10 on Windows). Select **only its endpoint control point at the keel**. Run `_SetPt`; check **Set Y only** and **Align to World**, then accept and enter `w0,0,0` for the location. Only the chosen Y coordinate is changed; its keel height is preserved. Repeat as needed for the other sections. [SetPt reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/setpt.htm).
+
+Do **not** apply Set Y = 0 to all control points: that would collapse the half-breadth. Do not move the sheer endpoint to the centreline. To correct an accidentally nonplanar trace, select all its control points and set **world X only** to 0 instead.
+
+Run `_PointsOff` when finished. Esc cancels a command or clears a selection; `_PointsOff` explicitly hides the editing handles. [Control-point documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/pointson.htm).
+
+### Inspect shape, not just endpoints
+
+Look for accidental hooks, doubled-back segments and bumps. Use `_CurvatureGraph` on one curve and vary its display scale so the comb is readable. Abrupt unintended spikes suggest a problem to investigate, not a reason to automatically add more points. [Curvature analysis reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvature.htm).
+
+For a smooth round-bilge centreline like this example, the section tangent at the keel should be horizontal in the YZ plane. If it is not, an instructor-guided correction is to place the **adjacent** control point at the keel endpoint's Z while leaving its Y offset and station X unchanged. This changes the curve: recheck it against the drawing afterwards. A deliberate sharp keel on a different hull is a different requirement.
+
+::: {.callout-tip title="Checkpoint — before creating a surface"}
+You should have five distinct, open, labelled curves in X = 0, each running from Y = 0 to its own sheer point. All are on the same chosen side, Y ≥ 0. There are no accidental closed loops. Save `surname_ex02_02_traced.3dm`.
+:::
+
+## 6. Move each section to its station
+
+Restore the four views. Hide the reference layer temporarily. Use Top, Front and Perspective to see the station spacing; **Right remains an end-on overlay even after a correct longitudinal move**.
+
+Select S1 alone and run `_Move`. Use base `w0,0,0`, destination `w2,0,0`: this translates the entire curve by 2 m along world X without changing Y or Z. Use the same base and the destinations below for the remaining sections.
+
+| Section | Destination for the move from X = 0 |
+|---|---|
+| S0 | Leave in place. |
+| S1 | `w2,0,0` |
+| S2 | `w4,0,0` |
+| S3 | `w6,0,0` |
+| S4 | `w8,0,0` |
+
+Use names and highlighting to confirm the selected curve. The move's base point need not lie on the section; here it defines the translation vector. Do not drag sections to approximate positions in Perspective. World-aligned Gumball with numeric input is an alternative, but do not apply both moves.
+
+Inspect Top: every section should be at a distinct X. Inspect Front: each section should look like a vertical edge at that X, not a tilted or bowed trace. Save `surname_ex02_03_stations.3dm`. This is a good stopping point for the first session.
+
+## 7. Build keel and sheer rails in 3D
+
+Make `20_rails` current. Turn **Osnap End on**; turn **Project off** and leave Near off. Work in **Perspective**, where the five stations are distinguishable.
+
+Start `_InterpCrv`, degree 3. Snap to the **keel endpoint** of S0, S1, S2, S3 and S4 in that order, then finish. Name the result `keel`. Repeat through the **sheer endpoints** in the same order and name that rail `sheer`.
+
+The rails must meet the section endpoints in 3D, not merely look coincident in one view. Inspect them in Top, Front and Perspective. If a rail has become flat in the wrong plane, check Osnap Project and redo it. Use `_Dir` to inspect direction arrows; keep the rails running consistently from S0 towards S4. [Direction reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/dir.htm).
+
+**For a hard-chine hull:** trace a separate chine rail and split each section at the actual chine. Build the bottom panel between keel and chine, and the side panel between chine and sheer. Do not smooth one surface across a feature intended to stay sharp. This extension is not required for the supplied round-bilge example.
+
+## 8. Create the half-hull surface
+
+### Main route: Sweep2
+
+Make `30_hull` current. Run `_Sweep2`:
+
+1. Select the **keel** and **sheer** rails.
+2. Select section curves **S0, S1, S2, S3, S4** in that order, clicking near corresponding ends.
+3. Finish the section selection and inspect the preview.
+4. Initially choose **Do not change cross sections**; do not enable rebuilding or refitting simply to hide a bad input curve.
+5. Accept only after checking the preview against the sections and rails.
+
+If the surface twists, cancel and check section order and direction, the chosen rail endpoints and whether any section has been selected twice. Keep the input curves; hide them when they obstruct inspection. [Sweep2 reference, including rail and cross-section guidance](https://docs.mcneel.com/rhino/8/help/en-us/commands/sweep2.htm).
+
+### Comparison route: Loft
+
+On a separate comparison layer, select only S0…S4 in order and run `_Loft`. Try the **Normal** style without rebuilding/refitting the sections. Compare its boundaries and the shape between stations with the Sweep2 result. Hide one surface while inspecting the other. [Loft reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/loft.htm).
+
+Loft is a useful first surface from an ordered section family. Sweep2 additionally uses the two boundary rails you supplied. Neither command can infer an unknown real hull from insufficient or inconsistent drawings. Do not keep both overlapping surfaces visible and mistake their combined appearance for one valid model.
+
+::: {.callout-tip title="Checkpoint — surface and source geometry"}
+Hide `10_sections` and `20_rails`: the half-hull should remain visible. Show them again: inspect the fit at the stations and along the boundaries. Save `surname_ex02_04_half_hull.3dm`.
+:::
+
+## 9. Mirror across the centreplane
+
+Select only the accepted half-hull surface. Activate **Top** and restore **World Top** as the CPlane. Run `_Mirror`, keep **Copy = Yes**, and define its mirror line using `w0,0,0` and `w1,0,0`. In this view, that line defines the vertical world XZ mirror plane, **Y = 0**. [Mirror reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/mirror.htm).
+
+Check that the second half lies at Y ≤ 0 rather than below the keel. Select the two halves and `_Join`. A joined edge is not automatically tangent-smooth: inspect the keel connection. [Join reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/join.htm).
+
+The intended result is still **open at the sheer and at the two terminal sections**. These openings are deliberate. In particular, the finite S0 and S4 sections are not a mistake that should be corrected by shrinking them to zero.
+
+## 10. Check the result systematically
+
+### Dimensions and positions
+
+Check the five X positions against the station table. Check S2's full section breadth after mirroring: it should be **3.60 m**. Check that all five supplied sheer points are at Z = 2 m. Inspect between stations too: an interpolating surface can overshoot, so the widest input section alone does not prove the entire surface's maximum beam.
+
+### Edges and validity
+
+Run `_ShowEdges` and choose **Naked edges**. The intended deck/terminal openings are expected; a remaining open connection along the keel after Join needs investigation. Do not simply increase the model tolerance until an incorrect seam joins. Run `_Check` for Rhino object validity. [ShowEdges](https://docs.mcneel.com/rhino/8/help/en-us/commands/showedges.htm) and [Check](https://docs.mcneel.com/rhino/8/help/en-us/commands/check.htm).
+
+Run `_Dir` on the surfaces to inspect their normal directions. Identify the intended exterior; correct inconsistent orientation where necessary. Keep a note of which boundaries remain open.
+
+### Fairness and an independent section
+
+Use `_Zebra` and rotate the view. Look for unexpected stripe breaks at the centreline or sudden changes across otherwise smooth regions. This is a visual smoothness check, not a dimensional certificate. [Zebra documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/zebra.htm).
+
+Create a check curve with `_Section` on `40_checks`. For example, in **Top**, with World Top CPlane, define the cutting line with `w3,0,0` and `w3,1,0`. The plane perpendicular to that CPlane through this line cuts the hull at **X = 3 m**, between supplied stations. For a waterline at Z = 1 m, use **Front**, World Front CPlane, and the line from `w0,0,1` to `w8,0,1`. Inspect the resulting curve for unintended wiggles. [Section and Contour documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/contour.htm).
+
+::: {.callout-warning title="A surface is not automatically a watertight solid"}
+Mirroring does not close the deck or ends. Join does not fill holes. `_Cap` only fills suitable **planar** openings; it is not a general bow/stern repair tool. Do not report displacement or treat this open exercise model as CFD-ready geometry. [Cap documentation](https://docs.mcneel.com/rhino/8/help/en-us/commands/cap.htm).
+:::
+
+**Optional, instructor-guided closure:** construct planar terminal faces using the end-section boundaries and their deck-closing segments, then Join them to the hull. The remaining planar deck opening may then be capped. Recheck naked/non-manifold edges, object validity and normal orientation; do not count a successful command as proof of a good solid.
+
+## Troubleshooting
+
+| Symptom | Check first |
+|---|---|
+| Picture is edge-on | Right viewport and World Right CPlane; picture should be in YZ. |
+| Horizontal scale is correct but vertical scale is wrong | Scan distortion, wrong reference marks or an earlier non-uniform scale. |
+| Curves jump to nearby lines while tracing | Osnap, Grid Snap or Ortho still enabled. |
+| All section breadths disappeared | SetPt was applied to all points with Set Y checked; undo. |
+| Sections still overlap in Right | This is normal: look in Top or Perspective to see their X separation. |
+| Rail endpoints do not meet the sections in 3D | Osnap Project, wrong snapped endpoint or an accidental CPlane change. |
+| Sweep twists or folds | Section order/directions, rail selection and doubled-back input curves. |
+| Keel looks creased after mirroring | Endpoint tangent conditions; matching positions alone is not sufficient. |
+| Model looks solid but has naked edges | Shaded display does not show whether the topology is closed. |
+
+## Submission and reflection
+
+Save the final file as `surname_ex02_hull.3dm`. Retain the reference picture, five source sections, two rails, accepted hull and checking curves on their own layers. When sharing, include the reference PNG alongside the model or verify Rhino's embedded-texture save option so the picture is not lost on another computer.
+
+Submit the model, its reference image, and three screenshots: calibrated body plan with traces; 3D sections and rails; and the final shaded hull with its edge check. Add a short note recording your two calibration measurements, the five station positions, the chosen surface command and the intentionally open boundaries.
+
+Answer in a few sentences: Why is the Right view appropriate for tracing these sections? Why are two independent calibration directions useful? What extra information does Sweep2 receive compared with Loft? What would you check before claiming the model is watertight?
+
+::: {.callout-note collapse="true" title="Self-check"}
+Right displays our YZ section plane. Independent dimensions can expose distortion that a single scale check misses. Sweep2 receives boundary rails as well as sections. A watertight claim needs valid closed topology with no unintended naked or non-manifold edges, not merely a convincing shaded view; shape and orientation still require inspection.
+:::
+
+**Reference library:** [Documentation, media and practice-data provenance](../resources.qmd).
