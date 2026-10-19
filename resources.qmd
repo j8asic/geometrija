@@ -51,11 +51,11 @@ For background on the symmetrical NACA 0012 section, see NASA's [NACA 0012 airfo
 |---|---|
 | Exporting NURBS surfaces | Rhino [IGES](https://docs.mcneel.com/rhino/8/help/en-us/fileio/iges_iges_import_export.htm) and [STEP](https://docs.mcneel.com/rhino/8/help/en-us/fileio/step_stp_import_export.htm) import/export |
 | Selecting hull surfaces | Rhino [surface selection commands](https://docs.mcneel.com/rhino/8/help/en-us/commands/selection_commands.htm#Surfaces) |
-| Maxsurf setup background | Lecturer's [Intro to Maxsurf](https://jobasic-geometry.curve.space/intro-to-maxsurf), linked from Exercise 4 |
+| Maxsurf setup background | Lecturer's [Introduction to Maxsurf Modeler](maxsurf-introduction.qmd), adapted and translated from the [original Croatian lesson](https://jobasic-geometry.curve.space/uvod-u-maxsurf); linked from Exercise 4 |
 
 ## Pictures and videos: credits and access
 
-The two Rhino illustrations in Exercise 1 are served from McNeel's documentation site, not copied into this repository. Their captions credit Robert McNeel & Associates and link to the original documentation. Exercise 3 includes the two illustrations supplied with the source lesson; their branding and visible credits are retained. This repository does not assign a new licence to those images or to externally hosted videos.
+The two Rhino illustrations in Exercise 1 are served from McNeel's documentation site, not copied into this repository. Their captions credit Robert McNeel & Associates and link to the original documentation. Exercise 3 includes the two illustrations supplied with the source lesson; their branding and visible credits are retained. The Maxsurf introduction retains the screenshots and toolbar images supplied with its source lesson in `assets/maxsurf-introduction/`. This repository does not assign a new licence to those images or to externally hosted videos.
 
 | Media | Original source and use here |
 |---|---|
@@ -67,6 +67,7 @@ The two Rhino illustrations in Exercise 1 are served from McNeel's documentation
 | Keel types video | [Watch on YouTube](https://www.youtube.com/watch?v=PU5i4TyTG70); linked from the source keel lesson and embedded in Exercise 3. |
 | Keel-type illustration | Included with the source keel lesson; the Navi.training branding remains visible in Exercise 3. |
 | Bulb and keel collage | Included with the source keel lesson; visible in-image credits, including Jon Nash / cupviews.com, remain in Exercise 3. |
+| Maxsurf Modeler screenshots and toolbar images | Included with Josip Bašić's [*Uvod u Maxsurf*](https://jobasic-geometry.curve.space/uvod-u-maxsurf), 4 October 2024; retained in the translated introduction. |
 
 All embedded videos use YouTube's privacy-enhanced player, without autoplay, and have ordinary watch links beside them. No video transcript, chapter title or timestamp is presented in these notes. The instructions remain usable when embedded playback is blocked. External media hosts may receive a request when their content loads; no separate course analytics are configured.
 
@@ -100,6 +101,8 @@ Exercise 3 adapts and extends Josip Bašić's *Modelling keel fin and keel bulb*
 
 The exercise's starter research links include the World Sailing [RC44 class rules](https://www.sailing.org/document/rc44-class-rules-2023-03mar-01/) and the 44Cup's [RC44 technical data](https://www.44cup.org/44Cup/technical-data), which provide keel offset and hull dimension information respectively; [International Star Class specifications](https://starclass.org/assets/documents/other_documents/2025-Specifications.pdf); [J/Boats J/70 specifications](https://jboats.com/spectables/j70_spec.html); and [ERYD Open specifications](https://eryd.com/en/eryd-open/). They are comparison sources, not design standards. Students are asked to record the date checked, source definitions and measurement datums.
 
-Exercise 4 adapts Josip Bašić's *From Rhino into Maxsurf*, dated **21 October 2024**. The [source lesson](https://jobasic-geometry.curve.space/from-rhino-into-maxsurf) supplies the IGES transfer sequence and Maxsurf setup steps. The converted lesson uses the course coordinate convention and links the original [Maxsurf introduction](https://jobasic-geometry.curve.space/intro-to-maxsurf) as a prerequisite.
+Exercise 4 adapts Josip Bašić's *From Rhino into Maxsurf*, dated **21 October 2024**. The [source lesson](https://jobasic-geometry.curve.space/from-rhino-into-maxsurf) supplies the IGES transfer sequence and Maxsurf setup steps. The converted lesson uses the course coordinate convention and links to the translated [Maxsurf introduction](maxsurf-introduction.qmd) as a prerequisite.
+
+The [Maxsurf introduction](maxsurf-introduction.qmd) adapts and translates Josip Bašić's *Uvod u Maxsurf*, dated **4 October 2024**. Its 37 source illustrations are retained locally.
 
 For instructors, the repository contains a chapter template, teaching notes, a local-link checker and the publishing workflow. See the [repository README](https://github.com/j8asic/geometrija#readme) for editing and publishing. Authoring references: [Quarto books](https://quarto.org/docs/books/) and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

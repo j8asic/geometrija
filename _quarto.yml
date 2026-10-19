@@ -23,6 +23,7 @@ book:
     - exercises/01-first-steps.qmd
     - exercises/02-hull-modelling.qmd
     - exercises/03-keel-fin-and-bulb.qmd
+    - maxsurf-introduction.qmd
     - exercises/04-rhino-to-maxsurf.qmd
     - resources.qmd
   page-footer:

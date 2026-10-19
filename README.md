@@ -10,6 +10,7 @@ A small [Quarto book](https://quarto.org/docs/books/) for first-year Naval Archi
 - A hull-modelling practical adapted and extended from `source/curvenote.tex`: calibrate a drawing, trace and position sections, build rails and surfaces, mirror and inspect the result.
 - A keel-fin and bulb practical adapted from the lecturer's source lesson: research hull and keel proportions, choose model ratios, import an NACA 0012 profile, loft the fin, revolve the bulb and check the Boolean union.
 - A Rhino-to-Maxsurf practical: export a hull surface as IGES, import it with matching units and axes, then set the Maxsurf reference and design grid.
+- An illustrated Maxsurf Modeler introduction and refresher, translated from the lecturer's Croatian notes.
 - Original synthetic practice drawing and CSV offsets, generated without third-party Python packages. Students do not need Python or Git to use the published downloads.
 - Local NACA 0012 practice points, links to McNeel documentation, course illustrations and YouTube videos.
 
@@ -52,6 +53,6 @@ The CI checker validates local page/asset links and local fragment targets, imag
 
 ## Rights and provenance
 
-The original supplied TeX for the hull exercise is retained in `source/curvenote.tex`, with its author and date intact. Its Curvenote support files were not supplied, so it is an archival source, not a standalone TeX build target. The keel exercise credits and links to its original web lesson in `resources.qmd`.
+The original supplied TeX for the hull exercise is retained in `source/curvenote.tex`, with its author and date intact. Its Curvenote support files were not supplied, so it is an archival source, not a standalone TeX build target. The keel exercise and Maxsurf introduction credit and link to their original web lessons in `resources.qmd`.
 
 No new blanket licence is imposed on the lecturer's material by this repository. Third-party documentation, illustrations and videos remain subject to their respective owners' terms. The synthetic body plan is newly created teaching data, not a real vessel, a certified design or a published experimental dataset. The NACA 0012 practice point file is supplied for classroom geometry practice and is not a keel design.

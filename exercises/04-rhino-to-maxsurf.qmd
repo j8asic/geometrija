@@ -10,7 +10,7 @@ Adapted from [*From Rhino into Maxsurf*](https://jobasic-geometry.curve.space/fr
 
 ## Before you start
 
-You need a Rhino hull surface and Maxsurf Modeler. Use the hull from [Exercise 2](02-hull-modelling.qmd), or another NURBS hull surface. Read the lecturer's [Intro to Maxsurf](https://jobasic-geometry.curve.space/intro-to-maxsurf) before continuing.
+You need a Rhino hull surface and Maxsurf Modeler. Use the hull from [Exercise 2](02-hull-modelling.qmd), or another NURBS hull surface. Read the [Introduction to Maxsurf Modeler](../maxsurf-introduction.qmd) before continuing.
 
 This course uses **X forward, Y to port, Z up**. Starboard is therefore on the **negative Y** side. Keep the Rhino units handy; you must select the same units when importing.
 

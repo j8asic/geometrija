@@ -67,7 +67,7 @@ Top shows XY, Front shows the XZ profile, and Right shows the YZ body plan. “F
 
 Use Rhino 8 for the first three exercises. Exercise 4 also requires Maxsurf Modeler. On macOS, use the named Rhino commands when panels or shortcuts differ. No plugins, Grasshopper, Git or Python are needed by students. A wheel mouse is helpful.
 
-Input files for Exercises 2 and 3 are linked on their pages. Exercise 4 uses the hull from Exercise 2 and links to a short Maxsurf introduction. The course text and practice data do not depend on playing a video. External documentation and video links need internet access; their original pages are linked as fallbacks.
+Input files for Exercises 2 and 3 are linked on their pages. Read the [Maxsurf introduction](maxsurf-introduction.qmd) before Exercise 4, which transfers the hull from Exercise 2 into Maxsurf. The course text and practice data do not depend on playing a video. External documentation and video links need internet access; their original pages are linked as fallbacks.
 
 ## Finding information
 
