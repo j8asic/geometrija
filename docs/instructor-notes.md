@@ -6,6 +6,8 @@ Exercise 1: approximately 90 minutes (setup/interface 15, navigation/selection 1
 
 Exercise 2: approximately two 90-minute sessions. Stop the first session once the five section curves have correct longitudinal positions. Use the second for rails, Sweep2/Loft comparison, mirroring and checking. The built-in drawing is a synthetic open-ended hull segment: closure is optional, not an acceptance requirement. A lecturer-supplied real lines plan can replace it, but must include known dimensions and station positions.
 
+Exercise 3: approximately 90 minutes of Rhino work, plus 20–30 minutes for the source research (profile import and curve 20, fin scaling and Loft 25, bulb and BooleanUnion 30, checks and reflection 15). Assign the research worksheet before class if the modelling session must stay within 90 minutes. It assumes the Exercise 1 coordinate convention. Exercise 2 is useful context but is not required. The deliverable is an isolated keel component, not a hull attachment or a naval-architecture design recommendation.
+
 Before teaching, walk through the exercises on the classroom Rhino installation. The text targets Rhino 8 on Windows, with command-name fallbacks and a Mac note. Rhino was not executable in the authoring environment; HTML/data validation is not a substitute for this classroom smoke test. Video URLs are supplied by the lecturer; no unverified video titles, chapters, durations or timestamps are asserted.
 
 ## Corrections and extensions to the supplied TeX
@@ -26,6 +28,12 @@ Before teaching, walk through the exercises on the classroom Rhino installation.
 
 S0 and S4 have nonzero breadth by design. Students are modelling the portion between two finite sections, not a pointed bow or completed stern. They should not shrink a terminal section to zero to make the model look closed.
 
+## Keel fin and bulb practice geometry
+
+Exercise 3 uses X forward, Y to port, and Z upward. Students first compare real hull and keel dimensions from web sources, then choose ratios for their own model. The lesson distinguishes published boat draft and overall keel depth from fin span, and asks students to identify datums and label estimates. The NACA 0012 root profile lies in XY at Z = 0. `downloads/keel-naca-0012-unit-chord-points.csv` contains 41 headerless XYZ rows normalized to a unit chord; Rhino's point-file importer requires no heading row and the exercise asks for individual point objects rather than a point cloud.
+
+The source `CurveThroughPt` step in the original article refers to a `Close=Yes` option. Rhino's command has no such option, so the converted lesson joins a short line between the finite trailing-edge endpoints and checks that the resulting curve is closed before lofting. The bulb is a closed profile revolved about an X-parallel axis. A small overlap, set as five percent of the chosen bulb diameter, places the bulb top above the fin-tip plane to create a clear Boolean intersection. The component remains closed at its root and is not presented as an installed keel or a performance-validated design. The starter sources include the Star class specifications, which define several keel-specific dimensions, and manufacturer pages that provide hull dimensions but not every keel dimension.
+
 ## Review emphasis
 
-Prioritise correct units, recoverable/layered construction, calibrated images and measured station positions over a polished screenshot. Ask students to distinguish an input tracing error from a surface-generation error. A plausible-looking surface is not evidence of dimensional accuracy, fairness or a valid closed volume.
+Prioritise correct units, recoverable/layered construction, calibrated images and measured station positions over a polished screenshot. Ask students to distinguish an input tracing error from a surface-generation error. A plausible-looking surface is not evidence of dimensional accuracy, fairness or a valid closed volume. For the keel exercise, a successful union only establishes that Rhino created a joined result; it does not establish hydrodynamic performance or suitability for a vessel.

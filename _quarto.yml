@@ -22,6 +22,7 @@ book:
     - index.qmd
     - exercises/01-first-steps.qmd
     - exercises/02-hull-modelling.qmd
+    - exercises/03-keel-fin-and-bulb.qmd
     - resources.qmd
   page-footer:
     left: "Ship Geometry · FESB, University of Split"

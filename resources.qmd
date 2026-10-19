@@ -32,9 +32,22 @@ The exercises link the relevant reference beside each operation. This page colle
 | Cutting check sections | [Section and Contour](https://docs.mcneel.com/rhino/8/help/en-us/commands/contour.htm) |
 | Closing suitable planar openings | [Cap](https://docs.mcneel.com/rhino/8/help/en-us/commands/cap.htm) |
 
+## Rhino: keel profiles and solids
+
+| Topic | Official reference |
+|---|---|
+| Importing an XYZ points file | [Point-file import](https://docs.mcneel.com/rhino/8/help/en-us/fileio/points_file_asc_csv_txt_xyz_cgo_import.htm) |
+| Fitting a curve through point objects | [CurveThroughPt](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvethroughpt.htm) |
+| Scaling and moving profiles | [Scale](https://docs.mcneel.com/rhino/8/help/en-us/commands/scale.htm) and [Move](https://docs.mcneel.com/rhino/8/help/en-us/commands/move.htm) |
+| Lofting between closed profiles | [Loft](https://docs.mcneel.com/rhino/8/help/en-us/commands/loft.htm) |
+| Revolving the bulb outline | [Revolve](https://docs.mcneel.com/rhino/8/help/en-us/commands/revolve.htm) |
+| Combining the fin and bulb | [BooleanUnion](https://docs.mcneel.com/rhino/8/help/en-us/commands/booleanunion.htm) |
+
+For background on the symmetrical NACA 0012 section, see NASA's [NACA 0012 airfoil-coordinate report](https://ntrs.nasa.gov/api/citations/19790013881/downloads/19790013881.pdf). The classroom point file is a compact, locally provided sample and is not a validated keel design.
+
 ## Pictures and videos: credits and access
 
-The two Rhino illustrations in Exercise 1 are served from McNeel's documentation site, **not copied into this repository**. Their captions credit Robert McNeel & Associates and link to the original documentation. The images and linked videos remain subject to their owners' terms; public availability is not a claim of an open licence.
+The two Rhino illustrations in Exercise 1 are served from McNeel's documentation site, not copied into this repository. Their captions credit Robert McNeel & Associates and link to the original documentation. Exercise 3 includes the two illustrations supplied with the source lesson; their branding and visible credits are retained. This repository does not assign a new licence to those images or to externally hosted videos.
 
 | Media | Original source and use here |
 |---|---|
@@ -43,8 +56,11 @@ The two Rhino illustrations in Exercise 1 are served from McNeel's documentation
 | Hello Gumball! demonstration | [McNeel video on Vimeo](https://vimeo.com/84954262), linked from the official Gumball documentation; optional viewing. |
 | FESB course video 1 | [Watch on YouTube](https://www.youtube.com/watch?v=7m7oXtBP5Z0); lecturer-supplied link, embedded in Exercise 2. |
 | FESB course video 2 | [Watch on YouTube](https://www.youtube.com/watch?v=5c0w0-o3Sc8); lecturer-supplied link, embedded in Exercise 2. |
+| Keel types video | [Watch on YouTube](https://www.youtube.com/watch?v=PU5i4TyTG70); linked from the source keel lesson and embedded in Exercise 3. |
+| Keel-type illustration | Included with the source keel lesson; the Navi.training branding remains visible in Exercise 3. |
+| Bulb and keel collage | Included with the source keel lesson; visible in-image credits, including Jon Nash / cupviews.com, remain in Exercise 3. |
 
-The FESB videos use YouTube's privacy-enhanced player, without autoplay, and have ordinary watch links beneath the section heading. No video transcript, unverified chapter title or timestamp is presented as part of these notes. The instructions remain usable when embedded playback is blocked. External media hosts may receive a request when their content loads; no separate course analytics are configured.
+All embedded videos use YouTube's privacy-enhanced player, without autoplay, and have ordinary watch links beside them. No video transcript, chapter title or timestamp is presented in these notes. The instructions remain usable when embedded playback is blocked. External media hosts may receive a request when their content loads; no separate course analytics are configured.
 
 ## Practice body plan and offsets
 
@@ -64,8 +80,16 @@ The generator is `scripts/make_practice_assets.py` in the repository. Editing `d
 
 **The first and last sections intentionally have finite breadth.** The model is an open-ended hull segment, not a completed boat. It carries no claims about hydrostatics, seaworthiness, resistance or suitability for production.
 
+## NACA 0012 profile points
+
+[`keel-naca-0012-unit-chord-points.csv`](downloads/keel-naca-0012-unit-chord-points.csv) contains 41 headerless XYZ rows in unit-chord coordinates. X and Y are normalized by chord length, Z is zero, and the section is sampled more densely near the leading edge. Students import it as individual point objects, fit an interpolated curve and close the small trailing-edge gap with a line. The root and tip curves are then scaled and moved in Rhino so students can apply dimensions selected from their web research.
+
 ## Original notes and course maintenance
 
 Exercise 2 adapts and extends Josip Bašić's *Hull modelling in Rhino*, dated **7 October 2025**. The [original TeX](https://github.com/j8asic/geometrija/blob/main/source/curvenote.tex) is preserved unchanged for provenance. Its Curvenote support files were not included in the supplied material; they are not required by this HTML book.
+
+Exercise 3 adapts and extends Josip Bašić's *Modelling keel fin and keel bulb*, dated **3 November 2025**. The [source lesson](https://jobasic-geometry.curve.space/modelling-keel-fin-and-keel-bulb) supplied the modelling topic, illustrations and linked YouTube video. The Quarto exercise adds a web-research worksheet for comparing real hull and keel proportions, a consistent coordinate convention, a normalized NACA 0012 point file, a parameterized root-to-tip transformation and checks for closed profiles and Boolean output. The two source illustrations remain subject to their original owners' terms.
+
+The exercise's starter research links include the World Sailing [RC44 class rules](https://www.sailing.org/document/rc44-class-rules-2023-03mar-01/) and the 44Cup's [RC44 technical data](https://www.44cup.org/44Cup/technical-data), which provide keel offset and hull dimension information respectively; [International Star Class specifications](https://starclass.org/assets/documents/other_documents/2025-Specifications.pdf); [J/Boats J/70 specifications](https://jboats.com/spectables/j70_spec.html); and [ERYD Open specifications](https://eryd.com/en/eryd-open/). They are comparison sources, not design standards. Students are asked to record the date checked, source definitions and measurement datums.
 
 For instructors, the repository contains a chapter template, teaching notes, a local-link checker and the publishing workflow. See the [repository README](https://github.com/j8asic/geometrija#readme) for editing and publishing. Authoring references: [Quarto books](https://quarto.org/docs/books/) and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
