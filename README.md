@@ -9,6 +9,7 @@ A small [Quarto book](https://quarto.org/docs/books/) for first-year Naval Archi
 - A first-ever Rhino practical: interface, viewports, selection, coordinates, snaps, layers, Gumball and a dimensioned pontoon model.
 - A hull-modelling practical adapted and extended from `source/curvenote.tex`: calibrate a drawing, trace and position sections, build rails and surfaces, mirror and inspect the result.
 - A keel-fin and bulb practical adapted from the lecturer's source lesson: research hull and keel proportions, choose model ratios, import an NACA 0012 profile, loft the fin, revolve the bulb and check the Boolean union.
+- A Rhino-to-Maxsurf practical: export a hull surface as IGES, import it with matching units and axes, then set the Maxsurf reference and design grid.
 - Original synthetic practice drawing and CSV offsets, generated without third-party Python packages. Students do not need Python or Git to use the published downloads.
 - Local NACA 0012 practice points, links to McNeel documentation, course illustrations and YouTube videos.
 

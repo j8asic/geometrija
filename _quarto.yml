@@ -8,7 +8,7 @@ project:
 
 book:
   title: "Ship Geometry"
-  subtitle: "Rhino practicals · Naval Architecture"
+  subtitle: "Rhino and Maxsurf practicals · Naval Architecture"
   author: "Josip Bašić"
   site-url: https://j8asic.github.io/geometrija/
   repo-url: https://github.com/j8asic/geometrija
@@ -23,6 +23,7 @@ book:
     - exercises/01-first-steps.qmd
     - exercises/02-hull-modelling.qmd
     - exercises/03-keel-fin-and-bulb.qmd
+    - exercises/04-rhino-to-maxsurf.qmd
     - resources.qmd
   page-footer:
     left: "Ship Geometry · FESB, University of Split"

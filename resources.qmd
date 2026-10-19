@@ -45,6 +45,14 @@ The exercises link the relevant reference beside each operation. This page colle
 
 For background on the symmetrical NACA 0012 section, see NASA's [NACA 0012 airfoil-coordinate report](https://ntrs.nasa.gov/api/citations/19790013881/downloads/19790013881.pdf). The classroom point file is a compact, locally provided sample and is not a validated keel design.
 
+## Rhino and Maxsurf exchange
+
+| Topic | Reference |
+|---|---|
+| Exporting NURBS surfaces | Rhino [IGES](https://docs.mcneel.com/rhino/8/help/en-us/fileio/iges_iges_import_export.htm) and [STEP](https://docs.mcneel.com/rhino/8/help/en-us/fileio/step_stp_import_export.htm) import/export |
+| Selecting hull surfaces | Rhino [surface selection commands](https://docs.mcneel.com/rhino/8/help/en-us/commands/selection_commands.htm#Surfaces) |
+| Maxsurf setup background | Lecturer's [Intro to Maxsurf](https://jobasic-geometry.curve.space/intro-to-maxsurf), linked from Exercise 4 |
+
 ## Pictures and videos: credits and access
 
 The two Rhino illustrations in Exercise 1 are served from McNeel's documentation site, not copied into this repository. Their captions credit Robert McNeel & Associates and link to the original documentation. Exercise 3 includes the two illustrations supplied with the source lesson; their branding and visible credits are retained. This repository does not assign a new licence to those images or to externally hosted videos.
@@ -91,5 +99,7 @@ Exercise 2 adapts and extends Josip Bašić's *Hull modelling in Rhino*, dated *
 Exercise 3 adapts and extends Josip Bašić's *Modelling keel fin and keel bulb*, dated **3 November 2025**. The [source lesson](https://jobasic-geometry.curve.space/modelling-keel-fin-and-keel-bulb) supplied the modelling topic, illustrations and linked YouTube video. The Quarto exercise adds a web-research worksheet for comparing real hull and keel proportions, a consistent coordinate convention, a normalized NACA 0012 point file, a parameterized root-to-tip transformation and checks for closed profiles and Boolean output. The two source illustrations remain subject to their original owners' terms.
 
 The exercise's starter research links include the World Sailing [RC44 class rules](https://www.sailing.org/document/rc44-class-rules-2023-03mar-01/) and the 44Cup's [RC44 technical data](https://www.44cup.org/44Cup/technical-data), which provide keel offset and hull dimension information respectively; [International Star Class specifications](https://starclass.org/assets/documents/other_documents/2025-Specifications.pdf); [J/Boats J/70 specifications](https://jboats.com/spectables/j70_spec.html); and [ERYD Open specifications](https://eryd.com/en/eryd-open/). They are comparison sources, not design standards. Students are asked to record the date checked, source definitions and measurement datums.
+
+Exercise 4 adapts Josip Bašić's *From Rhino into Maxsurf*, dated **21 October 2024**. The [source lesson](https://jobasic-geometry.curve.space/from-rhino-into-maxsurf) supplies the IGES transfer sequence and Maxsurf setup steps. The converted lesson uses the course coordinate convention and links the original [Maxsurf introduction](https://jobasic-geometry.curve.space/intro-to-maxsurf) as a prerequisite.
 
 For instructors, the repository contains a chapter template, teaching notes, a local-link checker and the publishing workflow. See the [repository README](https://github.com/j8asic/geometrija#readme) for editing and publishing. Authoring references: [Quarto books](https://quarto.org/docs/books/) and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

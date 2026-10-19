@@ -8,6 +8,8 @@ Exercise 2: approximately two 90-minute sessions. Stop the first session once th
 
 Exercise 3: approximately 90 minutes of Rhino work, plus 20–30 minutes for the source research (profile import and curve 20, fin scaling and Loft 25, bulb and BooleanUnion 30, checks and reflection 15). Assign the research worksheet before class if the modelling session must stay within 90 minutes. It assumes the Exercise 1 coordinate convention. Exercise 2 is useful context but is not required. The deliverable is an isolated keel component, not a hull attachment or a naval-architecture design recommendation.
 
+Exercise 4 transfers the Rhino hull surface from Exercise 2 into Maxsurf Modeler. Students need Maxsurf Modeler and should read the linked Maxsurf introduction first. The course convention maps to Maxsurf as bow +X, starboard −Y and up +Z; remind students to match the Rhino export units during IGES import.
+
 Before teaching, walk through the exercises on the classroom Rhino installation. The text targets Rhino 8 on Windows, with command-name fallbacks and a Mac note. Rhino was not executable in the authoring environment; HTML/data validation is not a substitute for this classroom smoke test. Video URLs are supplied by the lecturer; no unverified video titles, chapters, durations or timestamps are asserted.
 
 ## Corrections and extensions to the supplied TeX

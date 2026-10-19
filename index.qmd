@@ -2,10 +2,10 @@
 
 Learn to turn dimensions and drawings into clear, checkable 3D geometry.
 
-These practicals accompany **Ship Geometry** for Naval Architecture students at **FESB, University of Split**. Start with a simple pontoon to learn Rhino, then reconstruct a hull surface and model a keel fin with a ballast bulb. No previous CAD experience is assumed for the first exercise.
+These practicals accompany **Ship Geometry** for Naval Architecture students at **FESB, University of Split**. Start with a simple pontoon to learn Rhino, reconstruct a hull surface, model a keel fin with a ballast bulb, then transfer a hull into Maxsurf. No previous CAD experience is assumed for the first exercise.
 
 ::: {.columns}
-::: {.column width="33%"}
+::: {.column width="25%"}
 ::: {.lesson-card}
 ## First steps in Rhino {.unnumbered}
 
@@ -16,7 +16,7 @@ Find the tools, navigate the views, select objects and use Gumball. Build a dime
 [Start Exercise 1 →](exercises/01-first-steps.qmd)
 :::
 :::
-::: {.column width="33%"}
+::: {.column width="25%"}
 ::: {.lesson-card}
 ## Hull modelling {.unnumbered}
 
@@ -27,7 +27,7 @@ Calibrate an image, trace and position sections, build rails and a surface, then
 [Start Exercise 2 →](exercises/02-hull-modelling.qmd)
 :::
 :::
-::: {.column width="33%"}
+::: {.column width="25%"}
 ::: {.lesson-card}
 ## Keel fin and bulb {.unnumbered}
 
@@ -36,6 +36,17 @@ Calibrate an image, trace and position sections, build rails and a surface, then
 Compare real keel ratios, choose proportions, model a fin and bulb, and check the joined solid.
 
 [Start Exercise 3 →](exercises/03-keel-fin-and-bulb.qmd)
+:::
+:::
+::: {.column width="25%"}
+::: {.lesson-card}
+## From Rhino to Maxsurf {.unnumbered}
+
+**Exercise 4 · Rhino and Maxsurf**
+
+Export a hull surface, import it into Maxsurf, set the reference and design grid.
+
+[Start Exercise 4 →](exercises/04-rhino-to-maxsurf.qmd)
 :::
 :::
 :::
@@ -54,9 +65,9 @@ Top shows XY, Front shows the XZ profile, and Right shows the YZ body plan. “F
 
 ## What you need
 
-Use the classroom Rhino installation or your own licensed installation. The instructions target **Rhino 8 for Windows**; on macOS, use the named commands when panels or shortcuts differ. No plugins, Grasshopper, Git or Python are needed by students. A wheel mouse is helpful.
+Use Rhino 8 for the first three exercises. Exercise 4 also requires Maxsurf Modeler. On macOS, use the named Rhino commands when panels or shortcuts differ. No plugins, Grasshopper, Git or Python are needed by students. A wheel mouse is helpful.
 
-Input files for Exercises 2 and 3 are linked on their pages. The course text and practice data do not depend on playing a video. External documentation and video links need internet access; their original pages are linked as fallbacks.
+Input files for Exercises 2 and 3 are linked on their pages. Exercise 4 uses the hull from Exercise 2 and links to a short Maxsurf introduction. The course text and practice data do not depend on playing a video. External documentation and video links need internet access; their original pages are linked as fallbacks.
 
 ## Finding information
 

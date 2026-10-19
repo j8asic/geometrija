@@ -1,0 +1,61 @@
+# From Rhino to Maxsurf
+
+::: {.lesson-meta}
+**Exercise 4 · Complete Exercise 2 first and read the Maxsurf introduction**
+
+Export a Rhino hull surface as IGES, open it in Maxsurf Modeler, set the coordinate reference and design grid, then save the project.
+
+Adapted from [*From Rhino into Maxsurf*](https://jobasic-geometry.curve.space/from-rhino-into-maxsurf), Josip Bašić, 21 October 2024.
+:::
+
+## Before you start
+
+You need a Rhino hull surface and Maxsurf Modeler. Use the hull from [Exercise 2](02-hull-modelling.qmd), or another NURBS hull surface. Read the lecturer's [Intro to Maxsurf](https://jobasic-geometry.curve.space/intro-to-maxsurf) before continuing.
+
+This course uses **X forward, Y to port, Z up**. Starboard is therefore on the **negative Y** side. Keep the Rhino units handy; you must select the same units when importing.
+
+## 1. Export the hull from Rhino
+
+1. Save a working copy of your Rhino model.
+2. In the Right (YZ) view, select the **starboard hull surface only**. Do not select its curves. Rhino's [surface selection commands](https://docs.mcneel.com/rhino/8/help/en-us/commands/selection_commands.htm#Surfaces) can help when the model contains many objects.
+3. If the hull is not symmetrical, select both sides.
+4. Choose **File → Export Selected**, choose **IGES**, and save the file. Remember whether the Rhino model uses metres or millimetres.
+
+For this exercise, use IGES to transfer the NURBS surface. Rhino also supports [IGES](https://docs.mcneel.com/rhino/8/help/en-us/fileio/iges_iges_import_export.htm) and [STEP](https://docs.mcneel.com/rhino/8/help/en-us/fileio/step_stp_import_export.htm) exchange.
+
+## 2. Import the surface into Maxsurf
+
+1. Open Maxsurf Modeler and choose **File → Import → IGES**.
+2. In the import options, choose the same units as the Rhino file.
+3. Set the axes to match the model: bow toward **+X**, starboard toward **−Y**, and up toward **+Z**.
+4. Select the imported surface and check that its size and orientation match the Rhino model. If the hull is the wrong size, check the import units before continuing.
+
+## 3. Set up the display and reference
+
+Select the imported surface and open its properties. Turn on **Symmetrical** to show the other half of a symmetric hull, and turn on **Split Section Display** to show the stern and bow sections separately. If the surface is locked, unlock it in the properties window or with the context menu.
+
+Choose **Data → Frame of Reference**:
+
+- Set the origin to the aft perpendicular (**AP**) and baseline (**BL**), or use the reference points required for your model.
+- Enter the baseline value, or use **Find Base** to detect it.
+- Enter the design waterline (**DWL**) height.
+- Use **Set to DWL** to set the forward perpendicular, then place the AP at your chosen reference, such as the transom or rudder axis.
+
+## 4. Create the design grid
+
+Choose **Data → Design Grid** and create:
+
+- At least **20 sections**, spaced evenly along the hull length.
+- At least **8 waterlines**, spaced evenly over the hull depth.
+- At least **5 buttocks**, spaced evenly across the hull width.
+
+In the **Split** column, choose the section nearest midship to divide the stern and bow section views.
+
+## 5. Save the Maxsurf model
+
+Choose **File → Save** and save the Maxsurf project. The imported hull is ready for inspection and further work in Maxsurf.
+
+::: {.callout-tip title="Checkpoint"}
+Confirm the hull is the expected size, the bow points toward +X, starboard is on −Y, and the design grid shows sections, waterlines and buttocks.
+:::
+
