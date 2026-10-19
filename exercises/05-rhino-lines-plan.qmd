@@ -1,0 +1,57 @@
+# Create a lines plan in Rhino
+
+::: {.lesson-meta}
+**Exercise 5 · About 60 minutes · Complete Exercise 2 first**
+
+Use the hull surface from Exercise 2 to make a three-view lines plan and export it as a PDF.
+:::
+
+## Before you start
+
+Open the finished `surname_ex02_hull.3dm` model from [Exercise 2](02-hull-modelling.qmd) and save a copy as `surname_ex05_lines_plan.3dm`. The practice hull is 8 m long, up to 3.6 m wide and 2 m high. Keep the course axes: **X forward, Y to port, Z up**.
+
+The hull is an open-ended teaching surface. This exercise draws its contours; do not close or cap the ends.
+
+## 1. Prepare contour layers
+
+Keep the hull on its own layer. Create three layers for the curves:
+
+- `50_sections`
+- `51_waterlines`
+- `52_buttocks`
+
+The **Contour** command makes evenly spaced intersection curves. For each set, make its layer current, choose **ByCurrentLayer** in the command options, select the hull surface, and enter the base point, direction and spacing from the table.
+
+| Curves | World CPlane | Base point | Direction point | Spacing |
+|---|---|---|---|---:|
+| Sections (stations) | Top | `w0,0,0` | `w1,0,0` | 1 m |
+| Waterlines | Front | `w0,0,0` | `w0,0,1` | 0.25 m |
+| Buttocks | Right | `w0,0,0` | `w0,1,0` | 0.5 m |
+
+The direction point defines the normal direction of the cutting planes. Starting at the origin makes the planes repeat in both directions; the given intervals produce useful contours across this practice hull. See the [Contour command reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/contour.htm).
+
+## 2. Check the three curve sets
+
+In **Right**, inspect the sections; in **Front**, inspect the buttocks; in **Top**, inspect the waterlines. Turn the other contour layers off temporarily if the views look crowded. Check that the curves follow the hull without unexpected gaps or loops, then turn all three contour layers back on before making the layout.
+
+## 3. Arrange the drawing
+
+Hide the hull surface layer so the sheet shows only the contour curves. Create an **A3 landscape Layout** and add three detail views with the `Detail` command. Set each detail's projection in its Properties:
+
+| View | Projection | Contour layer to show |
+|---|---|---|
+| Body plan | Right | `50_sections` |
+| Profile | Front | `52_buttocks` |
+| Plan | Top | `51_waterlines` |
+
+Arrange the body plan on the left, with the profile above the plan on the right. In each detail, right-click its contour layer in the Layers panel and choose **Layer On in This Detail Only → This Layout**. Repeat for all three details; each curve set will then appear only in its assigned view. Set each detail to **1:50** (1 mm on the sheet = 0.05 m in the model), then lock it. See Rhino's [Layout](https://docs.mcneel.com/rhino/8/help/en-us/commands/layout.htm), [Detail](https://docs.mcneel.com/rhino/8/help/en-us/commands/detail.htm) and [detail layer visibility](https://docs.mcneel.com/rhino/8/help/en-us/commands/changelayer.htm) references for these settings.
+
+Add the view titles and a short note with the contour intervals. Keep all three views at the same scale.
+
+## 4. Export and submit
+
+Use **File → Print**, choose **Rhino PDF**, and print the layout. Check the preview for missing curves, crowded labels or a clipped view before saving.
+
+Submit `surname_ex05_lines_plan.3dm` and the one-page PDF. The PDF should show the body plan, profile and plan, each labelled with its view name and scale. The hull's terminal sections remain open.
+
+See the Rhino [Print command reference](https://docs.mcneel.com/rhino/8/help/en-us/commands/print.htm) for PDF output options.

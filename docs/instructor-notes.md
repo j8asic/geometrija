@@ -10,6 +10,8 @@ Exercise 3: approximately 90 minutes of Rhino work, plus 20–30 minutes for the
 
 Exercise 4 transfers the Rhino hull surface from Exercise 2 into Maxsurf Modeler. Students need Maxsurf Modeler and should read the linked Maxsurf introduction first. The course convention maps to Maxsurf as bow +X, starboard −Y and up +Z; remind students to match the Rhino export units during IGES import.
 
+Exercise 5: about 60 minutes. Students use the completed Exercise 2 hull to create station, waterline and buttock contours, arrange Right, Front and Top detail views on an A3 layout, and export a one-page PDF. The starter hull is open at its ends; closure is not part of this drawing exercise.
+
 Before teaching, walk through the exercises on the classroom Rhino installation. The text targets Rhino 8 on Windows, with command-name fallbacks and a Mac note. Rhino was not executable in the authoring environment; HTML/data validation is not a substitute for this classroom smoke test. Video URLs are supplied by the lecturer; no unverified video titles, chapters, durations or timestamps are asserted.
 
 ## Corrections and extensions to the supplied TeX

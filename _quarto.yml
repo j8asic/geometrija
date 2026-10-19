@@ -25,6 +25,7 @@ book:
     - exercises/03-keel-fin-and-bulb.qmd
     - maxsurf-introduction.qmd
     - exercises/04-rhino-to-maxsurf.qmd
+    - exercises/05-rhino-lines-plan.qmd
     - resources.qmd
   page-footer:
     left: "Ship Geometry · FESB, University of Split"

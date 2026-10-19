@@ -30,6 +30,7 @@ The exercises link the relevant reference beside each operation. This page colle
 | Topology and object validity | [ShowEdges](https://docs.mcneel.com/rhino/8/help/en-us/commands/showedges.htm) and [Check](https://docs.mcneel.com/rhino/8/help/en-us/commands/check.htm) |
 | Visual smoothness checks | [Curvature / CurvatureGraph](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvature.htm) and [Zebra](https://docs.mcneel.com/rhino/8/help/en-us/commands/zebra.htm) |
 | Cutting check sections | [Section and Contour](https://docs.mcneel.com/rhino/8/help/en-us/commands/contour.htm) |
+| Layout details and PDF output | [Layout](https://docs.mcneel.com/rhino/8/help/en-us/commands/layout.htm), [Detail](https://docs.mcneel.com/rhino/8/help/en-us/commands/detail.htm), [detail layer visibility](https://docs.mcneel.com/rhino/8/help/en-us/commands/changelayer.htm) and [Print](https://docs.mcneel.com/rhino/8/help/en-us/commands/print.htm) |
 | Closing suitable planar openings | [Cap](https://docs.mcneel.com/rhino/8/help/en-us/commands/cap.htm) |
 
 ## Rhino: keel profiles and solids
