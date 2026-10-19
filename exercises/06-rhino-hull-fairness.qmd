@@ -1,0 +1,42 @@
+# Check hull fairness in Rhino
+
+::: {.lesson-meta}
+**Exercise 6 · About 30 minutes · Complete Exercise 2 first**
+
+Use a curvature graph and Zebra stripes to inspect a hull, then see how one control-point change affects a curve.
+:::
+
+## Before you start
+
+Open the finished `surname_ex02_hull.3dm` from [Exercise 2](02-hull-modelling.qmd) and save a copy as `surname_ex06_fairness.3dm`. Keep the original hull unchanged. Turn on the `20_rails` and `30_hull` layers so the `sheer` rail and hull are visible.
+
+## 1. Read a curvature graph
+
+Select the `sheer` rail and run `_CurvatureGraph`. The short lines, or hairs, show how the curve bends. Change the graph display scale if the hairs are difficult to see. A sudden jump or spike is a clue to inspect; the graph is a guide, not a pass/fail score.
+
+Read McNeel's illustrated examples of [curvature graphs](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvature.htm) and its [boat-hull fairness guide](https://docs.mcneel.com/rhino/mac/usersguide/en-us/html/ch-16_boathull.htm). The hull guide shows a sheer curve and explains why fewer, well-placed control points are usually easier to fair.
+
+Run `_CurvatureGraphOff` before continuing.
+
+## 2. See what a control-point move does
+
+Make a copy of the `sheer` rail with `_Copy`. Use `w0,0,0` as the base point and `w10,0,0` as the destination, placing the copy clear of the hull. Select the copied curve, run `_CurvatureGraph`, and turn on its control points with `_PointsOn` (F10 on Windows).
+
+In the **Front** view, select one interior control point and move it about **0.05 m upward in world Z** with the Gumball. Watch the curve and graph change. Take a screenshot, then use Undo to restore the copied curve. Confirm that its graph returns to its earlier shape, then hide the control points and graph. Do not edit the original `sheer` rail.
+
+## 3. Inspect the hull with Zebra
+
+Select the hull and run `_Zebra`. Rotate the view to inspect the reflections along the hull and across the centreline join. Look for stripes that kink, jump or change abruptly. See McNeel's [illustrated Zebra examples](https://docs.mcneel.com/rhino/8/help/en-us/commands/zebra.htm), which compare stripe behavior at different surface connections.
+
+The Zebra display helps reveal surface smoothness. It does not check dimensions, topology or whether the hull is watertight.
+
+## Submit
+
+Submit `surname_ex06_fairness.3dm` and two screenshots:
+
+1. The copied `sheer` rail with its control points and curvature graph, showing the effect of the temporary move.
+2. The hull with Zebra stripes visible at the centreline join.
+
+In two or three sentences, describe what changed in the curvature graph when you moved the point and what you observed in the hull's Zebra stripes.
+
+**Reference library:** [Rhino analysis references and visual examples](../resources.qmd#rhino-analysis-and-fairness-examples).

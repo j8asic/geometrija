@@ -12,6 +12,7 @@ A small [Quarto book](https://quarto.org/docs/books/) for first-year Naval Archi
 - A Rhino-to-Maxsurf practical: export a hull surface as IGES, import it with matching units and axes, then set the Maxsurf reference and design grid.
 - An illustrated Maxsurf Modeler introduction and refresher, translated from the lecturer's Croatian notes.
 - A Rhino lines-plan practical: generate hull sections, waterlines and buttocks, arrange the three views on a layout and export a PDF.
+- A short hull-fairness practical: read curvature graphs, observe a control-point edit and inspect the mirrored hull with Zebra analysis.
 - Original synthetic practice drawing and CSV offsets, generated without third-party Python packages. Students do not need Python or Git to use the published downloads.
 - Local NACA 0012 practice points, links to McNeel documentation, course illustrations and YouTube videos.
 

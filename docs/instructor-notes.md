@@ -12,6 +12,8 @@ Exercise 4 transfers the Rhino hull surface from Exercise 2 into Maxsurf Modeler
 
 Exercise 5: about 60 minutes. Students use the completed Exercise 2 hull to create station, waterline and buttock contours, arrange Right, Front and Top detail views on an A3 layout, and export a one-page PDF. The starter hull is open at its ends; closure is not part of this drawing exercise.
 
+Exercise 6: about 30 minutes. Students copy the Exercise 2 sheer rail, observe how moving one control point changes its curvature graph, undo that temporary change and inspect the original mirrored hull with Zebra. The edit is deliberately confined to the copy; this short practical develops the diagnostic checks introduced in Exercise 2 without asking students to remodel the hull.
+
 Before teaching, walk through the exercises on the classroom Rhino installation. The text targets Rhino 8 on Windows, with command-name fallbacks and a Mac note. Rhino was not executable in the authoring environment; HTML/data validation is not a substitute for this classroom smoke test. Video URLs are supplied by the lecturer; no unverified video titles, chapters, durations or timestamps are asserted.
 
 ## Corrections and extensions to the supplied TeX

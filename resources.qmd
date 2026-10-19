@@ -29,9 +29,20 @@ The exercises link the relevant reference beside each operation. This page colle
 | Curve and surface orientation | [Dir](https://docs.mcneel.com/rhino/8/help/en-us/commands/dir.htm) |
 | Topology and object validity | [ShowEdges](https://docs.mcneel.com/rhino/8/help/en-us/commands/showedges.htm) and [Check](https://docs.mcneel.com/rhino/8/help/en-us/commands/check.htm) |
 | Visual smoothness checks | [Curvature / CurvatureGraph](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvature.htm) and [Zebra](https://docs.mcneel.com/rhino/8/help/en-us/commands/zebra.htm) |
+| Controlling curvature while modeling a boat hull | McNeel's illustrated [Boat Hull — Loft and Sweep guide](https://docs.mcneel.com/rhino/mac/usersguide/en-us/html/ch-16_boathull.htm) |
 | Cutting check sections | [Section and Contour](https://docs.mcneel.com/rhino/8/help/en-us/commands/contour.htm) |
 | Layout details and PDF output | [Layout](https://docs.mcneel.com/rhino/8/help/en-us/commands/layout.htm), [Detail](https://docs.mcneel.com/rhino/8/help/en-us/commands/detail.htm), [detail layer visibility](https://docs.mcneel.com/rhino/8/help/en-us/commands/changelayer.htm) and [Print](https://docs.mcneel.com/rhino/8/help/en-us/commands/print.htm) |
 | Closing suitable planar openings | [Cap](https://docs.mcneel.com/rhino/8/help/en-us/commands/cap.htm) |
+
+## Rhino analysis and fairness examples
+
+These illustrated McNeel references are used in [Exercise 6](exercises/06-rhino-hull-fairness.qmd). They open pages with diagrams and example hull images; the pictures stay on their original documentation pages.
+
+| What to look for | Visual reference |
+|---|---|
+| A boat sheer curve and the effect of curvature-graph inspection | [Boat Hull — Loft and Sweep](https://docs.mcneel.com/rhino/mac/usersguide/en-us/html/ch-16_boathull.htm) |
+| Smooth versus abruptly changing curve curvature | [Curvature and CurvatureGraph](https://docs.mcneel.com/rhino/8/help/en-us/commands/curvature.htm) |
+| Zebra stripes that kink, turn sharply or pass smoothly across surface joins | [Zebra surface analysis](https://docs.mcneel.com/rhino/8/help/en-us/commands/zebra.htm) |
 
 ## Rhino: keel profiles and solids
 
