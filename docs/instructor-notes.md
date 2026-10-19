@@ -14,6 +14,8 @@ Exercise 5: about 60 minutes. Students use the completed Exercise 2 hull to crea
 
 Exercise 6: about 30 minutes. Students copy the Exercise 2 sheer rail, observe how moving one control point changes its curvature graph, undo that temporary change and inspect the original mirrored hull with Zebra. The edit is deliberately confined to the copy; this short practical develops the diagnostic checks introduced in Exercise 2 without asking students to remodel the hull.
 
+Exercise 7: about 75 minutes. Students use the Exercise 2 section curves and sheer rail to make planar end closures and a deck, trim a cockpit opening, join the outer shell and make four transverse bulkhead surfaces at X = 0.8, 2.7, 5.5 and 6.8 m. The bulkheads lay out a lazarette, cockpit, saloon, head and forepeak. The starter hull remains synthetic and the forward closure is deliberately simple; this is an exercise in trimmed surfaces and space layout, not a realistic sailboat design. The open cockpit boundary is intentional, and the zero-thickness bulkheads do not form separate solids.
+
 Before teaching, walk through the exercises on the classroom Rhino installation. The text targets Rhino 8 on Windows, with command-name fallbacks and a Mac note. Rhino was not executable in the authoring environment; HTML/data validation is not a substitute for this classroom smoke test. Video URLs are supplied by the lecturer; no unverified video titles, chapters, durations or timestamps are asserted.
 
 ## Corrections and extensions to the supplied TeX

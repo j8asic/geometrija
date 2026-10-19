@@ -27,6 +27,7 @@ book:
     - exercises/04-rhino-to-maxsurf.qmd
     - exercises/05-rhino-lines-plan.qmd
     - exercises/06-rhino-hull-fairness.qmd
+    - exercises/07-rhino-close-and-compartment-hull.qmd
     - resources.qmd
   page-footer:
     left: "Ship Geometry · FESB, University of Split"

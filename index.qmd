@@ -2,7 +2,7 @@
 
 Learn to turn dimensions and drawings into clear, checkable 3D geometry.
 
-These practicals accompany **Ship Geometry** for Naval Architecture students at **FESB, University of Split**. Start with a simple pontoon to learn Rhino, reconstruct and check a hull surface, model a keel fin with a ballast bulb, transfer a hull into Maxsurf and produce a lines plan in Rhino. No previous CAD experience is assumed for the first exercise.
+These practicals accompany **Ship Geometry** for Naval Architecture students at **FESB, University of Split**. Start with a simple pontoon to learn Rhino, reconstruct and check a hull surface, model a keel fin with a ballast bulb, transfer a hull into Maxsurf, produce a lines plan and lay out a boat interior in Rhino. No previous CAD experience is assumed for the first exercise.
 
 ::: {.columns}
 ::: {.column width="33.33%"}
@@ -41,7 +41,7 @@ Compare real keel ratios, choose proportions, model a fin and bulb, and check th
 :::
 
 ::: {.columns}
-::: {.column width="33.33%"}
+::: {.column width="25%"}
 ::: {.lesson-card}
 ## From Rhino to Maxsurf {.unnumbered}
 
@@ -52,7 +52,7 @@ Export a hull surface, import it into Maxsurf, set the reference and design grid
 [Start Exercise 4 →](exercises/04-rhino-to-maxsurf.qmd)
 :::
 :::
-::: {.column width="33.33%"}
+::: {.column width="25%"}
 ::: {.lesson-card}
 ## Lines plan in Rhino {.unnumbered}
 
@@ -63,7 +63,7 @@ Create sections, waterlines and buttocks from the Exercise 2 hull, arrange a thr
 [Start Exercise 5 →](exercises/05-rhino-lines-plan.qmd)
 :::
 :::
-::: {.column width="33.33%"}
+::: {.column width="25%"}
 ::: {.lesson-card}
 ## Check hull fairness {.unnumbered}
 
@@ -72,6 +72,17 @@ Create sections, waterlines and buttocks from the Exercise 2 hull, arrange a thr
 Read a curvature graph, see how a control-point move changes a curve, and inspect the hull with Zebra stripes.
 
 [Start Exercise 6 →](exercises/06-rhino-hull-fairness.qmd)
+:::
+:::
+::: {.column width="25%"}
+::: {.lesson-card}
+## Close and compartment a hull {.unnumbered}
+
+**Exercise 7 · About 75 minutes**
+
+Add a transom, end panel and deck, trim a cockpit opening, and lay out interior spaces with bulkhead surfaces.
+
+[Start Exercise 7 →](exercises/07-rhino-close-and-compartment-hull.qmd)
 :::
 :::
 :::
@@ -90,9 +101,9 @@ Top shows XY, Front shows the XZ profile, and Right shows the YZ body plan. “F
 
 ## What you need
 
-Use Rhino 8 for Exercises 1–3 and 5–6. Exercise 4 also requires Maxsurf Modeler. On macOS, use the named Rhino commands when panels or shortcuts differ. No plugins, Grasshopper, Git or Python are needed by students. A wheel mouse is helpful.
+Use Rhino 8 for Exercises 1–3 and 5–7. Exercise 4 also requires Maxsurf Modeler. On macOS, use the named Rhino commands when panels or shortcuts differ. No plugins, Grasshopper, Git or Python are needed by students. A wheel mouse is helpful.
 
-Input files for Exercises 2 and 3 are linked on their pages. Exercises 5 and 6 use the completed hull model from Exercise 2. Read the [Maxsurf introduction](maxsurf-introduction.qmd) before Exercise 4, which transfers the hull from Exercise 2 into Maxsurf. The course text and practice data do not depend on playing a video. External documentation and video links need internet access; their original pages are linked as fallbacks.
+Input files for Exercises 2 and 3 are linked on their pages. Exercises 5–7 use the completed hull model from Exercise 2. Read the [Maxsurf introduction](maxsurf-introduction.qmd) before Exercise 4, which transfers the hull from Exercise 2 into Maxsurf. The course text and practice data do not depend on playing a video. External documentation and video links need internet access; their original pages are linked as fallbacks.
 
 ## Finding information
 

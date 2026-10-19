@@ -34,6 +34,17 @@ The exercises link the relevant reference beside each operation. This page colle
 | Layout details and PDF output | [Layout](https://docs.mcneel.com/rhino/8/help/en-us/commands/layout.htm), [Detail](https://docs.mcneel.com/rhino/8/help/en-us/commands/detail.htm), [detail layer visibility](https://docs.mcneel.com/rhino/8/help/en-us/commands/changelayer.htm) and [Print](https://docs.mcneel.com/rhino/8/help/en-us/commands/print.htm) |
 | Closing suitable planar openings | [Cap](https://docs.mcneel.com/rhino/8/help/en-us/commands/cap.htm) |
 
+## Rhino: closing and compartmenting
+
+These references support [Exercise 7](exercises/07-rhino-close-and-compartment-hull.qmd). The compartment surfaces are planar surfaces trimmed to section boundaries; the cockpit opening is trimmed from the deck.
+
+| Task | Official McNeel reference |
+|---|---|
+| Create the transom, forward end panel, deck and bulkhead faces from planar outlines | [PlanarSrf](https://docs.mcneel.com/rhino/8/help/en-us/commands/planarsrf.htm) |
+| Cut the cockpit opening in the deck surface | [Trim](https://docs.mcneel.com/rhino/8/help/en-us/commands/trim.htm) |
+| Create transverse hull section curves | [Section](https://docs.mcneel.com/rhino/8/help/en-us/commands/section.htm) |
+| Join the closing surfaces and inspect expected open edges | [Join](https://docs.mcneel.com/rhino/8/help/en-us/commands/join.htm) and [ShowEdges](https://docs.mcneel.com/rhino/8/help/en-us/commands/showedges.htm) |
+
 ## Rhino analysis and fairness examples
 
 These illustrated McNeel references are used in [Exercise 6](exercises/06-rhino-hull-fairness.qmd). They open pages with diagrams and example hull images; the pictures stay on their original documentation pages.

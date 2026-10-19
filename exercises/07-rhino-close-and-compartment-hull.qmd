@@ -1,0 +1,60 @@
+# Close and compartment a hull in Rhino
+
+::: {.lesson-meta}
+**Exercise 7 · About 75 minutes · Complete Exercise 2 first**
+
+Close the open practice hull with end panels and a deck, trim a cockpit opening, then use section-bounded surfaces to lay out the boat's main spaces.
+:::
+
+## Before you start
+
+Open the finished `surname_ex02_hull.3dm` from [Exercise 2](02-hull-modelling.qmd) and save a copy as `surname_ex07_compartments.3dm`. Keep the course axes: **X forward, Y to port, Z up**. The practice hull is a simplified, synthetic 8 m shape. For this geometry exercise, treat S0 at X = 0 as the stern and S4 at X = 8 m as a simple forward end. These flat closures make a useful modelling shell, not a production sailboat hull or a basis for hydrostatics.
+
+Create layers `60_closures`, `61_deck`, `62_cockpit` and `63_bulkheads`. Leave the two hull surfaces on their existing layer. In this working copy, `_Join` will consume the section and rail curves used to make the closures; the Exercise 2 source file stays unchanged. Make `60_closures` current while making the end panels.
+
+## 1. Close the two ends
+
+In the **Top** view, make the World Top CPlane current. Select the original `S0` and `S4` section curves, run `_Mirror`, set **Copy = Yes**, and define the centreline mirror with `w0,0,0` and `w1,0,0`. The copied curves should lie on the opposite side of Y = 0.
+
+For S0, draw a line between the two sheer endpoints. Join this line to the original and mirrored S0 curves to make one closed planar outline. Run `_PlanarSrf` on the outline to create the flat transom. Repeat the same steps for S4 to create the simple forward end panel. See Rhino's [PlanarSrf](https://docs.mcneel.com/rhino/8/help/en-us/commands/planarsrf.htm) reference.
+
+## 2. Make the deck and cockpit opening
+
+Mirror the `sheer` rail across Y = 0 with **Copy = Yes**. Draw one straight line across the sheer endpoints at X = 0 and another across the endpoints at X = 8 m. Select both rails and both lines, then run `_Join` to make one closed outline; all its points lie at Z = 2 m. Make `61_deck` current and run `_PlanarSrf` to create the flat deck.
+
+In **Top**, make `62_cockpit` current and draw a rectangle on the deck from `w1,-0.6,2` to `w2.5,0.6,2`. Check that the rectangle sits fully inside the sheer outline. Run `_Trim`, select the rectangle as the cutting object, press Enter, then click the deck area inside it. This opening marks the cockpit; the rectangle can remain as its outline. See the Rhino [Trim](https://docs.mcneel.com/rhino/8/help/en-us/commands/trim.htm) reference.
+
+## 3. Join and check the outer shell
+
+Select the two hull halves, transom, forward end panel and trimmed deck, then run `_Join`. Run `_ShowEdges` and inspect **Naked edges**. The only expected open boundary is the cockpit opening; the transom, forward end and the rest of the deck should meet the hull. If other edges remain open, check that the closure curves used the original hull endpoints before changing tolerance. Run `_Check` on the joined shell.
+
+The cockpit is intentionally open at the top, so the final shell is not a closed solid. A joined object does not by itself prove that all edges meet; see [Join](https://docs.mcneel.com/rhino/8/help/en-us/commands/join.htm) and [ShowEdges](https://docs.mcneel.com/rhino/8/help/en-us/commands/showedges.htm).
+
+## 4. Add trimmed bulkheads for the interior spaces
+
+Make `63_bulkheads` current. Use **Top** with the World Top CPlane. The bulkheads divide the interior into these simple layout spaces:
+
+| Space | X range |
+|---|---:|
+| Lazarette / aft locker | 0–0.8 m |
+| Cockpit | 0.8–2.7 m |
+| Saloon / main cabin | 2.7–5.5 m |
+| Head compartment | 5.5–6.8 m |
+| Forepeak / anchor locker | 6.8–8 m |
+
+Create transverse section curves through the hull at **X = 0.8, 2.7, 5.5 and 6.8 m**. For each one, run `_Section`, select only the joined outer shell, press Enter, and define the cutting line with `wX,0,0` and `wX,1,0` (replace `X` with the station value). These locations avoid the cockpit opening, so each section should form a closed curve around the hull and deck. If Rhino returns several curve segments, join them and confirm the result is closed.
+
+Select each closed section curve and run `_PlanarSrf`. Rhino creates a planar surface trimmed to that hull section. Keep the four bulkheads as separate surfaces on `63_bulkheads`; they have no thickness and are for space layout, not separate watertight room solids. See the [Section](https://docs.mcneel.com/rhino/8/help/en-us/commands/section.htm) reference.
+
+Name the bulkheads by the spaces they separate and add short labels for the lazarette, cockpit, saloon, head and forepeak. No furniture or fittings are required. The bulkhead positions are a classroom arrangement, not a standard interior plan.
+
+## Submit
+
+Submit `surname_ex07_compartments.3dm` and two screenshots:
+
+1. The exterior in Perspective, showing the transom, forward end panel, deck and cockpit opening.
+2. A cutaway or see-through view showing the four bulkhead surfaces and named spaces.
+
+In a few sentences, explain which naked edge is intentional and how the bulkheads divide the inside without making separate solids.
+
+**Reference library:** [Rhino surface and trimming references](../resources.qmd#rhino-closing-and-compartmenting).
